@@ -13,7 +13,7 @@ class BingWorldDataSourceTest
 	@org.junit.jupiter.api.Test
 	void getWorld() throws IOException, ParseException
 	{
-		BingCountryDataSource source = new BingCountryDataSource();
+		BingWorldDataSource source = new BingWorldDataSource();
 
 		World world = source.getWorld();
 

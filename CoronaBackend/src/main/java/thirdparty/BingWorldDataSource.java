@@ -19,7 +19,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
-public class BingCountryDataSource implements WorldDataSource
+public class BingWorldDataSource implements WorldDataSource
 {
 	private final CloseableHttpClient httpClient = HttpClients.createDefault();
 	private static final DataOrigin origin = new DataOrigin("bing.com");
