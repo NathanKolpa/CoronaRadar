@@ -4,8 +4,8 @@ import business.model.World;
 import com.sun.istack.internal.NotNull;
 
 
-public interface CountryDataSource
+public interface WorldDataSource
 {
 	@NotNull
-	World getCountries() throws Exception;
+	World getWorld() throws Exception;
 }
