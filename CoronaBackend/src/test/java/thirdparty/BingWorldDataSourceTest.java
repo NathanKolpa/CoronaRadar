@@ -11,7 +11,7 @@ class BingWorldDataSourceTest
 {
 
 	@org.junit.jupiter.api.Test
-	void getCountries() throws IOException, ParseException
+	void getWorld() throws IOException, ParseException
 	{
 		BingCountryDataSource source = new BingCountryDataSource();
 
