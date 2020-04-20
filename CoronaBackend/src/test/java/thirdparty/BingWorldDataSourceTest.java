@@ -1,7 +1,5 @@
 package thirdparty;
 
-import business.model.Country;
-import business.model.Province;
 import business.model.World;
 
 import java.io.IOException;
@@ -9,15 +7,15 @@ import java.text.ParseException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class BingCountryDataSourceTest
+class BingWorldDataSourceTest
 {
 
 	@org.junit.jupiter.api.Test
-	void getCountries() throws IOException, ParseException
+	void getWorld() throws IOException, ParseException
 	{
-		BingCountryDataSource source = new BingCountryDataSource();
+		BingWorldDataSource source = new BingWorldDataSource();
 
-		World world = source.getCountries();
+		World world = source.getWorld();
 
 		assertNotNull(world);
 		assertTrue(world.getCountries().size() > 0);
