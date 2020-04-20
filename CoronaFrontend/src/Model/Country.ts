@@ -1,4 +1,6 @@
-class Country
+
+import { Province } from "./Province"
+export class Country
 {
     private provinceList : Array<Province> = new Array<Province>();
 

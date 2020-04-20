@@ -1,4 +1,4 @@
-class Province
+export class Province
 {
     public constructor(private _name : string, private _infected: number, private _death: number, private _recovered: number)
     {
