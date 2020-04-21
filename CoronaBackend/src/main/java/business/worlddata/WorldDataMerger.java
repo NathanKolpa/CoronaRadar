@@ -49,16 +49,20 @@ public class WorldDataMerger implements WorldDataSource
 							//merge covid stats
 							Province mergedProvince = mergedCountry.getProvinces().get(province.getKey());
 
-							if (mergedProvince.getDeathCount() == null || mergedProvince.getDeathCount()
+							if (province.getValue()
+									.getDeathCount() != null && (mergedProvince.getDeathCount() == null || mergedProvince
+									.getDeathCount()
 									.getLastUpdated()
-									.before(province.getValue().getDeathCount().getLastUpdated()))
+									.before(province.getValue().getDeathCount().getLastUpdated())))
 							{
 								mergedProvince.setDeathCount(province.getValue().getDeathCount());
 							}
 
-							if (mergedProvince.getInfectedCount() == null || mergedProvince.getInfectedCount()
+							if (province.getValue()
+									.getInfectedCount() != null && (mergedProvince.getInfectedCount() == null || mergedProvince
+									.getInfectedCount()
 									.getLastUpdated()
-									.before(province.getValue().getInfectedCount().getLastUpdated()))
+									.before(province.getValue().getInfectedCount().getLastUpdated())))
 							{
 								mergedProvince.setInfectedCount(province.getValue().getInfectedCount());
 							}
