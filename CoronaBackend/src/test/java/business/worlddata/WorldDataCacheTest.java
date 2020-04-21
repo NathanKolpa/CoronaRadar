@@ -1,4 +1,4 @@
-package business;
+package business.worlddata;
 
 import business.date.ManualDateFactory;
 import business.model.World;
