@@ -1,6 +1,6 @@
 package thirdparty;
 
-import business.CountryDataSource;
+import business.WorldDataSource;
 import business.model.*;
 import com.sun.istack.internal.NotNull;
 import org.apache.http.HttpEntity;
@@ -19,13 +19,13 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
-public class BingCountryDataSource implements CountryDataSource
+public class BingWorldDataSource implements WorldDataSource
 {
 	private final CloseableHttpClient httpClient = HttpClients.createDefault();
 	private static final DataOrigin origin = new DataOrigin("bing.com");
 
 	@NotNull
-	public World getCountries() throws IOException, ParseException
+	public World getWorld() throws IOException, ParseException
 	{
 		return parseObjects(getResponse());
 	}
