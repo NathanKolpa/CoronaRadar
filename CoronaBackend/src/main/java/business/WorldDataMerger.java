@@ -85,6 +85,4 @@ public class WorldDataMerger implements WorldDataSource
 			}
 		}).collect(Collectors.toList());
 	}
-
-
 }
