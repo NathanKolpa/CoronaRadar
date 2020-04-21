@@ -19,15 +19,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - id: npm-cache
-      run: |
-        echo "::set-output name=dir::$(npm config get cache)"
     - uses: actions/cache@v1
       with:
-        path: ${{ steps.npm-cache.outputs.dir }}
-        key: ${{ runner.os }}-node-${{ hashFiles('CoronaFrontend/package-lock.json') }}
+        path: ~/.cache/yarn
+        key: ${{ runner.os }}-yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
         restore-keys: |
-          ${{ runner.os }}-node-
+          ${{ runner.os }}-yarn-
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
@@ -35,10 +32,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
         
     - name: Install Dependencies
-      run: npm install --prefix CoronaFrontend
+      run: yarn install --prefix CoronaFrontend
 
     - name: Build
-      run: npm run build --prefix CoronaFrontend
+      run: yarn run build --prefix CoronaFrontend
 #======================================================================================== 
   backend:
     name: CI Backend
