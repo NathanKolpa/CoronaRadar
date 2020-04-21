@@ -1,6 +1,6 @@
 package infrastructure;
 
-import business.WorldDataSource;
+import business.worlddata.WorldDataSource;
 import business.model.*;
 import com.sun.istack.internal.NotNull;
 import org.apache.http.HttpEntity;

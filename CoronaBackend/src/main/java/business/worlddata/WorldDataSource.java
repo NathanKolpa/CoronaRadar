@@ -1,4 +1,4 @@
-package business;
+package business.worlddata;
 
 import business.model.World;
 import com.sun.istack.internal.NotNull;

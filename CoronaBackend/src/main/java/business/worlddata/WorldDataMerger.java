@@ -1,4 +1,4 @@
-package business;
+package business.worlddata;
 
 import business.model.Country;
 import business.model.Province;
