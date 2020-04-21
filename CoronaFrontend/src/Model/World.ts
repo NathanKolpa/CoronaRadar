@@ -2,9 +2,9 @@ import { Country } from "./Country";
 
 export class World
 {
-    private _countries : Array<Country> = new Array<Country>();
+    private _countries : Map<string, Country> = new Map();
 
-    public get countries() : Array<Country>
+    public get countries() : Map<string, Country>
     {
         return this._countries;
     }
