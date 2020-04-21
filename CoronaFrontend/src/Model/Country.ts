@@ -2,7 +2,7 @@
 import { Province } from "./Province"
 export class Country
 {
-    private provinceList : Array<Province> = new Array<Province>();
+    private provinceList : Map<string, Province> = new Map();
 
     public constructor(private _name: string)
     {
@@ -19,8 +19,8 @@ export class Country
         return this._name;
     }
 
-    public addProvince(province : Province) : void
+    public get provinces() : Map<string, Province>
     {
-        this.provinceList.push(province);
+        return this.provinceList;
     }
 }
