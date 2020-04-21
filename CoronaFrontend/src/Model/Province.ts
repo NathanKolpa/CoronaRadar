@@ -1,6 +1,6 @@
 export class Province
 {
-    public constructor(private _name : string, private _infected: number, private _death: number, private _recovered: number)
+    public constructor(private _name : string, private _infected: number, private _death: number)
     {
 
     }
@@ -33,15 +33,5 @@ export class Province
     public get death() : number
     {
         return this._death;
-    }
-
-    public set recovered(recovered: number)
-    {
-        this._recovered = recovered;
-    }
-
-    public get recovered() : number
-    {
-        return this._recovered;
     }
 }
