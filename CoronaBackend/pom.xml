@@ -17,6 +17,23 @@
                     <target>8</target>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>6.3.3</version>
+                <configuration>
+                    <url>jdbc:h2:file:./target/foobar</url>
+                    <user>sa</user>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.h2database</groupId>
+                        <artifactId>h2</artifactId>
+                        <version>1.4.197</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
         </plugins>
     </build>
     <dependencies>
