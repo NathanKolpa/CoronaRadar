@@ -1,5 +1,4 @@
 name: Continuous Integration
-
 on:
   push:
     branches: master
@@ -9,12 +8,10 @@ jobs:
 #========================================================================================  
   frontend:
     name: CI Frontend
-
     strategy:
       matrix:
         node-version: [10.x, 12.x]
         platform: [ubuntu-latest,  windows-latest]
-
     runs-on: ${{ matrix.platform }}
 
     steps:
@@ -39,13 +36,12 @@ jobs:
 #======================================================================================== 
   backend:
     name: CI Backend
-    
     strategy:
       matrix:
         platform: [ubuntu-latest,  windows-latest]
         java-version: [1.8]
-    
     runs-on: ${{ matrix.platform }}
+
     steps:
     - uses: actions/checkout@v2
     - uses: actions/cache@v1
