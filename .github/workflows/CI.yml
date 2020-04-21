@@ -32,10 +32,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
         
     - name: Install Dependencies
-      run: yarn install --prefix CoronaFrontend
+      run: yarn --cwd CoronaFrontend install
 
     - name: Build
-      run: yarn run build --prefix CoronaFrontend
+      run: yarn --cwd CoronaFrontend run build
 #======================================================================================== 
   backend:
     name: CI Backend
