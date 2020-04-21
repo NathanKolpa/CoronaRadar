@@ -1,14 +1,12 @@
 package business.model;
 
-import com.sun.istack.internal.Nullable;
-
 public class Province
 {
 	private String name;
 	private CovidStat deathCount;
 	private CovidStat infectedCount;
 
-	public Province(String name, @Nullable CovidStat deathCount, @Nullable CovidStat infectedCount)
+	public Province(String name, CovidStat deathCount, CovidStat infectedCount)
 	{
 		this.name = name;
 		this.deathCount = deathCount;
@@ -25,22 +23,22 @@ public class Province
 		this.name = name;
 	}
 
-	public @Nullable CovidStat getDeathCount()
+	public CovidStat getDeathCount()
 	{
 		return deathCount;
 	}
 
-	public void setDeathCount(@Nullable CovidStat deathCount)
+	public void setDeathCount(CovidStat deathCount)
 	{
 		this.deathCount = deathCount;
 	}
 
-	public @Nullable CovidStat getInfectedCount()
+	public CovidStat getInfectedCount()
 	{
 		return infectedCount;
 	}
 
-	public void setInfectedCount(@Nullable CovidStat infectedCount)
+	public void setInfectedCount(CovidStat infectedCount)
 	{
 		this.infectedCount = infectedCount;
 	}
