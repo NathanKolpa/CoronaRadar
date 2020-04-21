@@ -19,7 +19,7 @@ export class Country
         return this._name;
     }
 
-    public get province() : Map<string, Province>
+    public get provinces() : Map<string, Province>
     {
         return this.provinceList;
     }
