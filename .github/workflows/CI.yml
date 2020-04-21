@@ -1,4 +1,4 @@
-name: CI Frontend
+name: Continuous Integration
 
 on:
   push:
@@ -8,7 +8,8 @@ on:
 jobs:
 #========================================================================================  
   frontend:
-    runs-on: ubuntu-latest
+    name: CI Frontend
+    runs-on: [ubuntu-latest]
 
     strategy:
       matrix:
@@ -37,6 +38,7 @@ jobs:
       run: npm run build --prefix CoronaFrontend
 #======================================================================================== 
   backend:
+    name: CI Backend
     runs-on: [ubuntu-latest]
     steps:
     - uses: actions/checkout@v2
