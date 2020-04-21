@@ -1,12 +1,14 @@
 package business.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class World
 {
-	private ArrayList<Country> countries = new ArrayList<>();
+	private Map<String, Country> countries = new HashMap<>();
 
-	public ArrayList<Country> getCountries()
+	public Map<String, Country> getCountries()
 	{
 		return countries;
 	}

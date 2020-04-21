@@ -1,4 +1,4 @@
-package thirdparty;
+package infrastructure;
 
 import business.WorldDataSource;
 import business.model.*;
@@ -66,11 +66,14 @@ public class BingWorldDataSource implements WorldDataSource
 				CovidStat infectedCount = jsonProvince.isNull("totalConfirmed") ? null : new CovidStat(origin, lastUpdated, jsonProvince
 						.getInt("totalConfirmed"));
 
+				String bingId = jsonProvince.getString("id");
+				String id = bingId.substring(0, bingId.lastIndexOf("_"));
+
 				country.getProvinces()
-						.add(new Province(jsonProvince.getString("displayName"), deathCount, infectedCount));
+						.put(id,new Province(jsonProvince.getString("displayName"), deathCount, infectedCount));
 			}
 
-			world.getCountries().add(country);
+			world.getCountries().put(jsonCountry.getString("id"), country);
 		}
 
 		return world;

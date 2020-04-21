@@ -1,11 +1,13 @@
 package business.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Country
 {
 	private String name;
-	private ArrayList<Province> provinces = new ArrayList<Province>();
+	private Map<String, Province> provinces = new HashMap<>();
 
 	public Country(String name)
 	{
@@ -22,7 +24,7 @@ public class Country
 		this.name = name;
 	}
 
-	public ArrayList<Province> getProvinces()
+	public Map<String, Province> getProvinces()
 	{
 		return provinces;
 	}
