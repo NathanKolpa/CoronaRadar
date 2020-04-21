@@ -9,11 +9,13 @@ jobs:
 #========================================================================================  
   frontend:
     name: CI Frontend
-    runs-on: [ubuntu-latest]
 
     strategy:
       matrix:
         node-version: [10.x, 12.x]
+        platform: [ubuntu-latest,  windows-latest]
+
+    runs-on: ${{ matrix.platform }}
 
     steps:
     - uses: actions/checkout@v2
@@ -39,7 +41,12 @@ jobs:
 #======================================================================================== 
   backend:
     name: CI Backend
-    runs-on: [ubuntu-latest]
+    
+    strategy:
+      matrix:
+        platform: [ubuntu-latest,  windows-latest]
+    
+    runs-on: ${{ matrix.platform }}
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 1.8
