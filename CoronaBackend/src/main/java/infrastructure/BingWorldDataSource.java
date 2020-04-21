@@ -2,7 +2,6 @@ package infrastructure;
 
 import business.worlddata.WorldDataSource;
 import business.model.*;
-import com.sun.istack.internal.NotNull;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -24,7 +23,7 @@ public class BingWorldDataSource implements WorldDataSource
 	private final CloseableHttpClient httpClient = HttpClients.createDefault();
 	private static final DataOrigin origin = new DataOrigin("bing.com");
 
-	@NotNull
+	@Override
 	public World getWorld() throws IOException, ParseException
 	{
 		return parseObjects(getResponse());
