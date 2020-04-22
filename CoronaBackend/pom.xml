@@ -30,7 +30,7 @@
             <plugin>
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
-                <version>6.3.3</version>
+                <version>6.4.0</version>
                 <configuration>
                     <url>jdbc:h2:file:./target/foobar</url>
                     <user>sa</user>
