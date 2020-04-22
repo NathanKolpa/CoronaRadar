@@ -25,7 +25,7 @@ jobs:
       run: yarn --cwd CoronaFrontend install
 
     - name: Build
-      run: yarn --cwd CoronaFrontend run build
+      run: yarn --cwd CoronaFrontend run build-prod
 
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
