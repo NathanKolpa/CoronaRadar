@@ -7,36 +7,43 @@ import business.worlddata.WorldDataSource;
 import infrastructure.BingWorldDataSource;
 import infrastructure.CurrentDateFactory;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.CacheControl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import webapi.reponse.CountryResponse;
 import webapi.reponse.WorldResponse;
+
+import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
 @RestController
 public class WebApi
 {
 	private WorldDataSource dataSource;
+	private CacheControl cacheControl;
 
 	public WebApi()
 	{
 		dataSource = new WorldDataCache(new BingWorldDataSource(), new CurrentDateFactory(), 60);
+
+		cacheControl = CacheControl.maxAge(60, TimeUnit.SECONDS).noTransform().mustRevalidate();
 	}
 
-	@RequestMapping(value = "/world/netherlands", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "/world/{countryId}", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
-	public ResponseEntity<CountryResponse> getNetherlands()
+	public ResponseEntity<CountryResponse> getCountry(@PathVariable(value = "countryId") String countryId)
 	{
 		try
 		{
 			World world = dataSource.getWorld();
-			Country netherlands = world.getNetherlands();
 
-			return ResponseEntity.ok().body(new CountryResponse(netherlands));
+			if (!world.getCountries().containsKey(countryId))
+				return ResponseEntity.notFound().build();
+
+			Country country = world.getCountries().get(countryId);
+
+			return ResponseEntity.ok().cacheControl(cacheControl).body(new CountryResponse(country));
 		}
 		catch (Exception e)
 		{
@@ -52,7 +59,7 @@ public class WebApi
 		{
 			World world = dataSource.getWorld();
 
-			return ResponseEntity.ok().body(new WorldResponse(world));
+			return ResponseEntity.ok().cacheControl(cacheControl).body(new WorldResponse(world));
 		}
 		catch (Exception e)
 		{
