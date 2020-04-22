@@ -2,6 +2,7 @@ package webapi.reponse;
 
 import business.model.Country;
 import business.model.World;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.AbstractMap;
 import java.util.Map;
@@ -16,6 +17,7 @@ public class WorldResponse
 		this.world = world;
 	}
 
+	@JsonProperty("countries")
 	public Map<String, CountryResponse> getCountries()
 	{
 		return world.getCountries()
