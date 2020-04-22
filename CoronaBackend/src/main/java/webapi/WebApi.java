@@ -27,7 +27,7 @@ public class WebApi
 	{
 		dataSource = new WorldDataCache(new BingWorldDataSource(), new CurrentDateFactory(), 60);
 
-		cacheControl = CacheControl.maxAge(60, TimeUnit.SECONDS).noTransform().mustRevalidate();
+		cacheControl = CacheControl.maxAge(60, TimeUnit.SECONDS).noTransform().cachePublic();
 	}
 
 	@RequestMapping(value = "/world/{countryId}", method = RequestMethod.GET, produces = "application/json")
