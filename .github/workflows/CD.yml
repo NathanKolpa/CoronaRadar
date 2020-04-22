@@ -100,6 +100,14 @@ jobs:
           name: backend
           path: artifact
           
+      - name: Stop backend
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          password: ${{ secrets.REMOTE_PASSWORD }}
+          script: ${{ secrets.REMOTE_BACKEND_STOP_SCRIPT }}
+          
       - name: SSH deploy files
         uses: appleboy/scp-action@master
         with:
@@ -109,4 +117,11 @@ jobs:
           source: "artifact/"
           target: ${{ secrets.REMOTE_BACKEND_FOLDER }}
           strip_components: 1
-
+          
+      - name: Start backend
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          password: ${{ secrets.REMOTE_PASSWORD }}
+          script: ${{ secrets.REMOTE_BACKEND_START_SCRIPT }}
