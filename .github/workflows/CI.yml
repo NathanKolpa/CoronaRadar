@@ -33,6 +33,12 @@ jobs:
 
     - name: Build
       run: yarn --cwd CoronaFrontend run build
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: frontend
+        path: CoronaFrontend/dist
 #======================================================================================== 
   backend:
     name: CI Backend
@@ -64,3 +70,8 @@ jobs:
     - name: Test
       run: mvn test --file CoronaBackend/pom.xml
 
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: backend
+        path: CoronaBackend/target/CoronaBackend-1.0-SNAPSHOT.jar
