@@ -86,5 +86,5 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           password: ${{ secrets.REMOTE_PASSWORD }}
           source: "artifact/"
-          target: /var/www/coronaradar/
+          target: ${{ secrets.REMOTE_FRONTEND_FOLDER }}
           strip_components: 1
