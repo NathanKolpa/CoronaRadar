@@ -5,4 +5,3 @@ import {IMap} from "./Map/IMap";
 import {OpenlayersMap} from "./Openlayers/OpenlayersMap";
 
 const map: IMap = new OpenlayersMap('map');
-
