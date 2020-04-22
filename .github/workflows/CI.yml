@@ -37,7 +37,7 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
-        name: frontend
+        name: frontend-${{ matrix.platform }}-${{ matrix.node-version }}
         path: CoronaFrontend/dist
 #======================================================================================== 
   backend:
@@ -76,5 +76,5 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
-        name: backend
+        name: backend-${{ matrix.platform }}
         path: CoronaBackend/target/CoronaBackend-1.0-SNAPSHOT.jar
