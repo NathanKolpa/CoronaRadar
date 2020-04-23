@@ -20,6 +20,5 @@ export class Http
             return jsonFile;
         }
         return null;
-        
     }
 }

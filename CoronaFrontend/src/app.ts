@@ -7,3 +7,4 @@ import {Http} from "./Model/Http";
 
 
 const map: IMap = new OpenlayersMap('map');
+
