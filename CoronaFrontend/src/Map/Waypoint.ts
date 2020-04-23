@@ -5,7 +5,6 @@ export class Waypoint
     constructor(private _descriptionName : string, private _waypointInfected: number, private _waypointDeath: number, private _cordX: number,private _cordY: number)
     {
 
-
     }
 
     //set-get descriptionName
