@@ -6,6 +6,7 @@ import business.worlddata.WorldDataCache;
 import business.worlddata.WorldDataSource;
 import infrastructure.BingWorldDataSource;
 import infrastructure.CurrentDateFactory;
+import infrastructure.rivm.RivmWorldDataSource;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.CacheControl;
 import org.springframework.http.HttpStatus;
@@ -25,7 +26,7 @@ public class WebApi
 
 	public WebApi()
 	{
-		dataSource = new WorldDataCache(new BingWorldDataSource(), new CurrentDateFactory(), 60);
+		dataSource = new WorldDataCache(new RivmWorldDataSource(), new CurrentDateFactory(), 60);
 
 		cacheControl = CacheControl.maxAge(60, TimeUnit.SECONDS).noTransform().cachePublic();
 	}
