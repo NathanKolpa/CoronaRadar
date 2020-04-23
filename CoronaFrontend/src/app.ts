@@ -7,6 +7,3 @@ import {Http} from "./Model/Http";
 
 
 const map: IMap = new OpenlayersMap('map');
-
-const http : Http = new Http();
-http.getJson("https://opendata.ecdc.europa.eu/covid19/casedistribution/json/");
