@@ -1,12 +1,22 @@
 import 'ol/ol.css';
+import Feature from 'ol/Feature';
+import Map from 'ol/Map';
+import Overlay from 'ol/Overlay'
+import View from 'ol/View';
+import Point from 'ol/geom/Point';
+import {Tile as TileLayer, Vector as VectorLayer} from 'ol/layer';
+import TileJSON from 'ol/source/TileJSON';
+import VectorSource from 'ol/source/Vector';
+import {Icon, Style} from 'ol/style';
 
 export class Waypoint
 {
     constructor(private _descriptionName : string, private _waypointInfected: number, private _waypointDeath: number, private _cordX: number,private _cordY: number)
     {
-
     }
 
+
+//===========================================================================================================
     //set-get descriptionName
     public set descriptionName(descriptionName: string)
     {
