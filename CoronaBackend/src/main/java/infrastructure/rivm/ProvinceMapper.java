@@ -9,6 +9,10 @@ public class ProvinceMapper
 
 	public ProvinceMapper()
 	{
+		// Drenthe
+		map.put("Aa en Hunze", "drenthe");
+
+		// Gelderland
 		map.put("Winterswijk", "gelderland");
 	}
 
