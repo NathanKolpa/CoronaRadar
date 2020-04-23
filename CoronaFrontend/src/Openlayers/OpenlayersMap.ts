@@ -1,6 +1,7 @@
 import {IMap} from "../Map/IMap";
 import OSM from "ol/source/OSM";
 import {Tile as TileLayer, Vector as VectorLayer} from "ol/layer";
+import TileJSON from 'ol/source/TileJSON';
 import Point from "ol/geom/Point";
 import Feature from 'ol/Feature';
 import Map from 'ol/Map';
@@ -10,6 +11,7 @@ import VectorSource from 'ol/source/Vector';
 import {Icon, Style} from 'ol/style';
 import "../Map/Waypoint";
 import {Waypoint} from "../Map/Waypoint";
+import {fromLonLat} from "ol/proj";
 
 
 export class OpenlayersMap implements IMap {
@@ -25,8 +27,10 @@ export class OpenlayersMap implements IMap {
         ({
             target: target,
             layers: [
+
                 new TileLayer({source: new OSM()}),
-                new VectorLayer({source: this._vectorSource})
+
+                new VectorLayer({source: this._vectorSource}),
             ],
             view: new View
             ({
@@ -45,51 +49,14 @@ export class OpenlayersMap implements IMap {
         });
 
         this._map.addOverlay(popup);
-
-        // display popup on click
-        this._map.on('click', function (evt) {
-            var feature = this._map.forEachFeatureAtPixel(evt.pixel,
-                function (feature) {
-                    return feature;
-                });
-            if (feature) {
-                var coordinates = feature.getGeometry().getCoordinates();
-                popup.setPosition(coordinates);
-                $(element).popover({
-                    placement: 'top',
-                    html: true,
-                    content: feature.get('name')
-                });
-                $(element).popover('show');
-            } else {
-                $(element).popover('destroy');
-            }
-        });
     }
 
     addWaypoint(point: import("../Map/Waypoint").Waypoint)
     {
-        throw new Error("Method not implemented.");
-
         var iconFeature = new Feature
         ({
-            geometry: new Point([point.cordX, point.cordY]),
-
-            name: point.descriptionName + " Number of Deaths: " + point.waypointDeath + " Number of infected: " + point.waypointInfected,
+            geometry:  new Point(fromLonLat([point.cordX, point.cordY]))
         });
-
-        var iconStyle = new Style
-        ({
-            image: new Icon
-            ({
-                anchor: [0.5, 46],
-                //anchorXUnits: 'fraction',
-                //anchorYUnits: 'pixels',
-                src: 'Icons.hazard.png'
-            })
-        });
-
-        iconFeature.setStyle(iconStyle);
 
         this._vectorSource.addFeature(iconFeature);
     }
