@@ -38,22 +38,12 @@ export class OpenlayersMap implements IMap {
                 zoom: 0
             })
         });
-        var element = document.getElementById('popup');
 
-        var popup = new Overlay
-        ({
-            element: element,
-            //positioning: 'bottom-center',
-            stopEvent: false,
-            offset: [0, -50]
-        });
-
-        this._map.addOverlay(popup);
     }
 
     addWaypoint(point: import("../Map/Waypoint").Waypoint)
     {
-        var iconFeature = new Feature
+        let iconFeature = new Feature
         ({
             geometry:  new Point(fromLonLat([point.cordX, point.cordY]))
         });
