@@ -1,7 +1,12 @@
 
 export class Http
 {
-    private host : string;
+   
+
+    public constructor(private host : string)
+    {
+
+    }
 
     public async getJson(url : string) : Promise<any>
     {
