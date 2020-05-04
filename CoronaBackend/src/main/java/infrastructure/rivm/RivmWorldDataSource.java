@@ -99,6 +99,7 @@ public class RivmWorldDataSource implements WorldDataSource
 			}
 		}
 
+
 		scanner.close();
 
 		return world;

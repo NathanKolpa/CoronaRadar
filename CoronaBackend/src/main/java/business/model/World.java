@@ -20,4 +20,14 @@ public class World
 
 		return countries.get("netherlands");
 	}
+
+	public int getTotalInfected()
+	{
+		return countries.entrySet().stream().mapToInt(value -> value.getValue().getTotalInfected()).sum();
+	}
+
+	public int getTotalDead()
+	{
+		return countries.entrySet().stream().mapToInt(value -> value.getValue().getTotalDead()).sum();
+	}
 }
