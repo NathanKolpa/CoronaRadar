@@ -1,23 +1,18 @@
-import {IMap} from "../Map/IMap";
+import {IMap} from "~Core/Map/IMap";
 import OSM from "ol/source/OSM";
 import {Tile as TileLayer, Vector as VectorLayer} from "ol/layer";
-import TileJSON from 'ol/source/TileJSON';
 import Point from "ol/geom/Point";
 import Feature from 'ol/Feature';
 import Map from 'ol/Map';
-import Overlay from 'ol/Overlay'
 import View from 'ol/View';
 import VectorSource from 'ol/source/Vector';
-import {Icon, Style} from 'ol/style';
-import "../Map/Waypoint";
-import {Waypoint} from "../Map/Waypoint";
 import {fromLonLat} from "ol/proj";
+import {Waypoint} from "~Core/Map/Waypoint";
 
 
 export class OpenlayersMap implements IMap {
-    private _map;
-    private _vectorSource: VectorSource;
-
+    private readonly _map: Map;
+    private readonly _vectorSource: VectorSource;
 
     constructor(target: string) {
 
@@ -41,7 +36,7 @@ export class OpenlayersMap implements IMap {
 
     }
 
-    addWaypoint(point: import("../Map/Waypoint").Waypoint)
+    addWaypoint(point: Waypoint)
     {
         let iconFeature = new Feature
         ({

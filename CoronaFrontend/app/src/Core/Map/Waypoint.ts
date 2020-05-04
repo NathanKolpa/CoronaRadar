@@ -15,7 +15,6 @@ export class Waypoint
     {
     }
 
-
 //===========================================================================================================
     //set-get descriptionName
     public set descriptionName(descriptionName: string)
