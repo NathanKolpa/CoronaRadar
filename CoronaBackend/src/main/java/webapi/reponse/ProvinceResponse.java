@@ -30,4 +30,9 @@ public class ProvinceResponse
 	{
 		return province.getInfectedCount() != null ? new CovidStatResponse(province.getInfectedCount()) : null;
 	}
+	@JsonProperty("location")
+	public LocationResponse getLocation()
+	{
+		return new LocationResponse(province.getLocation());
+	}
 }

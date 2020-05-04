@@ -69,7 +69,7 @@ public class BingWorldDataSource implements WorldDataSource
 				String id = bingId.substring(0, bingId.lastIndexOf("_"));
 
 				country.getProvinces()
-						.put(id,new Province(jsonProvince.getString("displayName"), deathCount, infectedCount));
+						.put(id,new Province(jsonProvince.getString("displayName"), deathCount, infectedCount, new Location(0,0)));
 			}
 
 			world.getCountries().put(jsonCountry.getString("id"), country);

@@ -25,12 +25,12 @@ class WorldDataMergerTest
 		world1.getCountries()
 				.get("netherlands")
 				.getProvinces()
-				.put("gelderland", new Province("Gelderland", new CovidStat(dataOrigin, now, 10), null));
+				.put("gelderland", new Province("Gelderland", new CovidStat(dataOrigin, now, 10), null, new Location(0,0)));
 
 		world2.getCountries()
 				.get("netherlands")
 				.getProvinces()
-				.put("gelderland", new Province("Gelderland", null, new CovidStat(dataOrigin, now, 10)));
+				.put("gelderland", new Province("Gelderland", null, new CovidStat(dataOrigin, now, 10),new Location(0,0)));
 
 		WorldDataMerger dataMerger = new WorldDataMerger();
 		dataMerger.getSources().add(new ManualWorldData(world1));
@@ -61,12 +61,12 @@ class WorldDataMergerTest
 		world1.getCountries()
 				.get("netherlands")
 				.getProvinces()
-				.put("gelderland", new Province("Gelderland", new CovidStat(dataOrigin, old, 10),  new CovidStat(dataOrigin, old, 10)));
+				.put("gelderland", new Province("Gelderland", new CovidStat(dataOrigin, old, 10),  new CovidStat(dataOrigin, old, 10), new Location(0,0)));
 
 		world2.getCountries()
 				.get("netherlands")
 				.getProvinces()
-				.put("gelderland", new Province("Gelderland", new CovidStat(dataOrigin, later, 20), new CovidStat(dataOrigin, later, 20)));
+				.put("gelderland", new Province("Gelderland", new CovidStat(dataOrigin, later, 20), new CovidStat(dataOrigin, later, 20), new Location(0,0)));
 
 		WorldDataMerger dataMerger = new WorldDataMerger();
 		dataMerger.getSources().add(new ManualWorldData(world2));
