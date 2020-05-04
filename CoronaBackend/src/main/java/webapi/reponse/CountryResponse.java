@@ -22,6 +22,12 @@ public class CountryResponse
 		return country.getName();
 	}
 
+	@JsonProperty("total_dead")
+	public int getTotalDead() {return country.getTotalDead();}
+
+	@JsonProperty("total_infected")
+	public int getTotalInfected() {return country.getTotalInfected();}
+
 	@JsonProperty("provinces")
 	public Map<String, ProvinceResponse> getProvinces()
 	{
