@@ -51,6 +51,34 @@ public class ProvinceMapper
 		map.put("Waadhoeke", "fiesland");
 		map.put("Weststellingwerf", "fiesland");
 
+		//flevoland
+		map.put("Almere", "flevoland");
+		map.put("Dronten", "flevoland");
+		map.put("Lelystad", "flevoland");
+		map.put("Noordoostpolder", "flevoland");
+		map.put("Urk", "flevoland");
+		map.put("Zeewolde", "flevoland");
+
+		//Friesland
+		map.put("Achtkarspelen", "fiesland");
+		map.put("Ameland", "fiesland");
+		map.put("Dantumadeel", "fiesland");
+		map.put("De friese meren", "fiesland");
+		map.put("Harlingen", "fiesland");
+		map.put("Heerenveen", "fiesland");
+		map.put("Leeuwarden", "fiesland");
+		map.put("Noardeast-Fryslând", "fiesland");
+		map.put("Ooststellingwerf", "fiesland");
+		map.put("Opsterland", "fiesland");
+		map.put("Schiermonnikook", "fiesland");
+		map.put("Smallingerland", "fiesland");
+		map.put("Súdwest-Fryslân", "fiesland");
+		map.put("Terschelling", "fiesland");
+		map.put("Tietjerksteradeel", "fiesland");
+		map.put("Vlieland", "fiesland");
+		map.put("Waadhoeke", "fiesland");
+		map.put("Weststellingwerf", "fiesland");
+
 		// Gelderland
 		map.put("Aalten", "gelderland");
 		map.put("Apeldoorn", "gelderland");
@@ -309,7 +337,6 @@ public class ProvinceMapper
 		map.put("Tholen", "zeeland");
 		map.put("Veere", "zeeland");
 		map.put("Vlissingen", "zeeland");
-
 		map.put("Zaltbommel", "gelderland");
 		map.put("Zevenaar", "gelderland");
 		map.put("Zutphen", "gelderland");

@@ -3,6 +3,7 @@ import '@fortawesome/fontawesome-free/css/all.css'
 import 'ol/ol.css';
 import {IMap} from "./Map/IMap";
 import {OpenlayersMap} from "./Openlayers/OpenlayersMap";
+import {Http} from "./Model/Http";
 import {Waypoint} from "./Map/Waypoint";
 
 const map: IMap = new OpenlayersMap('map');
@@ -18,4 +19,3 @@ map.addWaypoint(new Waypoint("Utrecht", 1, 1, 5.1, 52.1))
 map.addWaypoint(new Waypoint("Noord-Brabant", 1, 1, 5.1, 51.7))
 map.addWaypoint(new Waypoint("Limburg", 1, 1, 6, 51.3))
 map.addWaypoint(new Waypoint("Zeeland", 1, 1, 4, 51.6))
-
