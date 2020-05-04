@@ -1,22 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="Img/radar.png"/>
     <title>Corona radar</title>
     <style>
         #map {
-            width: 1500px;
-            height: 700px;
+            width: 100%;
+            height: 75vh;
+            border-color: #FFEB0F;
+            border-style: outset;
+        }
+        #container{
+            background-color: black;
+            border-color: #FFEB0F;
+            border-style: outset;
+        }
+        #titleFilter{
+            background-color: black;
+            color: white;
+            border-color: #FFEB0F;
+            border-style: outset;
+        }
+        #provincieInfo{
+            background-color: black;
+            height: 20vh;
+            color: white;
+            border-color: #FFEB0F;
+            border-style: outset;
+        }
+        #footer{
+            background-color: black;
+            text-align: center;
+            color: white;
+            height: auto;
         }
     </style>
 
-    <title>Corona Death map</title>
+    <title>CoronaRadar</title>
     <script src="./app.ts" defer></script>
 </head>
 <body>
-
-<h2>Corona world map</h2>
-<div id="map" class="map"></div>
-
+    <div class="container-fluid" id="container">
+        <div class="row">
+            <div class="col-md-3" id="titleFilter">
+                <h2>CoronaRader</h2>
+                <h4>Filter</h4>
+                <h5>Cases</h5>
+                <input type="checkbox" id="confirmdCases">
+                <label for="confirmdCases">Confirmd Cases</label><br>
+                <input type="checkbox" id="confirmdDeath">
+                <label for="confirmdDeath">Confirmd Death</label><br>
+                <!--<h6>Map</h6> -->
+            </div>
+            <div class="col-md-9">
+                <div id="map" class="map"></div>
+            </div>
+        </div>
+        <div class="row" id="provincieInfo">
+            <div class="col-md-2">
+                <h5>Provincie:</h5>
+                <h5>Coordinaten:</h5>
+                <h5>Confirmd Cases:</h5>
+                <h5>Confirmd Death:</h5>
+            </div>
+            <div class="col-md-1">
+                <select id="provincie">
+                    <option value="gelderland">Gelderland</option>
+                    <option value="flevoland">Flevoland</option>
+                    <option value="friesland">Friesland</option>
+                    <option value="drenthe">Drenthe</option>
+                    <option value="groningen">Groningen</option>
+                    <option value="noordholland">Noord-Holland</option>
+                    <option value="zuidholland">Zuid-Holland</option>
+                    <option value="zeeland">Zeeland</option>
+                    <option value="utrecht">Utrecht</option>
+                    <option value="noordbrabant">Noord-Brabant</option>
+                    <option value="limburg">Limburg</option>
+                    <option value="overijssel">Overijssel</option>
+                </select><br>
+                <h5>0</h5>
+                <h5>0</h5>
+                <h5>0</h5>
+            </div>
+            <div class="col-md-9"></div>
+        </div>
+        <div class="row" id="footer">
+            <div class="col">
+                <p>Copyright &copy; 2020 - Alle rechten voorbehouden.</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
