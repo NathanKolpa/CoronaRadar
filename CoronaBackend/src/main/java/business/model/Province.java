@@ -5,12 +5,14 @@ public class Province
 	private String name;
 	private CovidStat deathCount;
 	private CovidStat infectedCount;
+	private Location location;
 
-	public Province(String name, CovidStat deathCount, CovidStat infectedCount)
+	public Province(String name, CovidStat deathCount, CovidStat infectedCount, Location location)
 	{
 		this.name = name;
 		this.deathCount = deathCount;
 		this.infectedCount = infectedCount;
+		this.location = location;
 	}
 
 	public String getName()
@@ -36,6 +38,10 @@ public class Province
 	public CovidStat getInfectedCount()
 	{
 		return infectedCount;
+	}
+
+	public Location getLocation() {
+		return location;
 	}
 
 	public void setInfectedCount(CovidStat infectedCount)
