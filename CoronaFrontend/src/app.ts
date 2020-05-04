@@ -5,8 +5,6 @@ import {IMap} from "./Map/IMap";
 import {OpenlayersMap} from "./Openlayers/OpenlayersMap";
 import {Http} from "./Model/Http";
 
-const http : Http = new Http("");
-http.getJson("localhost:8080/world");
 
 
 const map: IMap = new OpenlayersMap('map');
