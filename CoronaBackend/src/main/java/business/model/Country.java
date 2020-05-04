@@ -7,7 +7,7 @@ import java.util.Map;
 public class Country
 {
 	private String name;
-	private Map<String, Province> provinces = new HashMap<>();
+	private HashMap<String, Province> provinces = new HashMap<>();
 
 	public Country(String name)
 	{
@@ -24,6 +24,15 @@ public class Country
 		this.name = name;
 	}
 
+	public int getTotalInfected()
+	{
+		return provinces.entrySet().stream().mapToInt(value -> value.getValue().getInfectedCount() != null ? value.getValue().getInfectedCount().getStatValue():0).sum();
+	}
+
+	public int getTotalDead()
+	{
+		return provinces.entrySet().stream().mapToInt(value -> value.getValue().getDeathCount() != null ? value.getValue().getDeathCount().getStatValue():0).sum();
+	}
 	public Map<String, Province> getProvinces()
 	{
 		return provinces;
