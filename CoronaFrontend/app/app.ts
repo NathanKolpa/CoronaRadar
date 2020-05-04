@@ -1,10 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@fortawesome/fontawesome-free/css/all.css'
 import 'ol/ol.css';
-import {IMap} from "./Map/IMap";
-import {OpenlayersMap} from "./Openlayers/OpenlayersMap";
-import {Http} from "./Model/Http";
-import {Waypoint} from "./Map/Waypoint";
+import {IMap} from "./src/Core/Map/IMap";
+import {OpenlayersMap} from "./src/Infrastructure/Openlayers/OpenlayersMap";
+import {Http} from "./src/Infrastructure/Api/Http";
+import {Waypoint} from "./src/Core/Map/Waypoint";
 
 const map: IMap = new OpenlayersMap('map');
 map.addWaypoint(new Waypoint("Groningen", 1, 1, 6.6, 53.2))

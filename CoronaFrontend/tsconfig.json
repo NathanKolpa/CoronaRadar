@@ -1,0 +1,13 @@
+{
+	"compilerOptions": {
+		"baseUrl": "./app/src",
+		"paths": {
+			"~*": ["./*"]
+		},
+		"lib": ["DOM", "ES2016"],
+		"target": "ES5"
+	},
+	"include": [
+		"app/src/**/*"
+	]
+}
