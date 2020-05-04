@@ -19,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
 @RestController
+@CrossOrigin(origins = "*")
 public class WebApi
 {
 	private WorldDataSource dataSource;
