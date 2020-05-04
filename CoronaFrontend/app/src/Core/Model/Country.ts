@@ -1,5 +1,5 @@
+import { Province } from "./Province";
 
-import { Province } from "./Province"
 export class Country
 {
     private provinceList : Map<string, Province> = new Map();

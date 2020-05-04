@@ -1,8 +1,10 @@
+import {CovidStat} from "./CovidStat";
+import { Location } from "./Location";
+
 export class Province
 {
-    public constructor(private _name : string, private _infected: number, private _death: number)
+    public constructor(private _name : string, private _location: Location, private _infected: CovidStat | null, private _death: CovidStat | null)
     {
-
     }
 
     public set name(name: string)
@@ -15,23 +17,19 @@ export class Province
         return this._name;
     }
 
-    public set infected(infected: number)
-    {
-        this._infected = infected;
-    }
 
-    public get infected() : number
+    public get infected() : CovidStat | null
     {
         return this._infected;
     }
 
-    public set death(death: number)
-    {
-        this._death = death;
-    }
 
-    public get death() : number
+    public get death() : CovidStat | null
     {
         return this._death;
+    }
+
+    public get location(): Location {
+        return this._location;
     }
 }
