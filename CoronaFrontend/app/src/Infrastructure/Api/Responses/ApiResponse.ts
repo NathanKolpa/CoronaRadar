@@ -10,6 +10,7 @@ export interface ICountry {
 export interface IProvince {
 	infections: IStat | null;
 	deaths: IStat | null;
+	location: ILocation;
 	name: string;
 }
 
@@ -21,4 +22,9 @@ export interface IStat {
 
 export interface IDataOrigin {
 	name: string;
+}
+
+export interface ILocation {
+	lat: number;
+	lon: number;
 }
