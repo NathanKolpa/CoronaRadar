@@ -29,12 +29,15 @@ export class OpenlayersMap implements IMap {
 
                 new TileLayer({source: new OSM()}),
 
-                new VectorLayer({source: this._vectorSource}),
+                new VectorLayer({source: this._vectorSource,
+                    updateWhileAnimating: true,
+                    updateWhileInteracting: true
+                }),
             ],
             view: new View
             ({
-                center: [0, 0],
-                zoom: 0
+                center: fromLonLat([6, 52.1326]),
+                zoom: 7.5
             })
         });
 
@@ -47,15 +50,14 @@ export class OpenlayersMap implements IMap {
             geometry:  new Point(fromLonLat([point.cordX, point.cordY]))
         });
 
-        iconFeature.setStyle(new Style({
-            image: new CircleStyle({
-                radius: point.radius,
-                fill: new Fill({color: 'red'}),
-                stroke: new Stroke({
-                    color: [255,0,0], width: 2
-                })
+        iconFeature.setStyle((feature, resolution) => {
+            return new Style({
+                image: new CircleStyle({
+                    radius: point.radius / resolution,
+                    fill: new Fill({color: 'red'}),
+                }),
             })
-        }));
+        });
 
         this._vectorSource.addFeature(iconFeature);
     }

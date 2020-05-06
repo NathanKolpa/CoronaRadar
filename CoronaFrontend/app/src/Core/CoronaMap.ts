@@ -11,7 +11,7 @@ export class CoronaMap {
 
 		world.countries.forEach(((country, countryId) => {
 			country.provinces.forEach((province, provinceId) => {
-				this._map.addWaypoint(new Waypoint(province.name, province.location.lat, province.location.lon, 7));
+				this._map.addWaypoint(new Waypoint(province.name, province.location.lat, province.location.lon, province.radius));
 			});
 		}));
 	}

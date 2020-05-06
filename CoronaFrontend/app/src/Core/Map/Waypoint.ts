@@ -30,6 +30,11 @@ export class Waypoint {
 		return this._cordY;
 	}
 
+	//set-get radius circle
+	public set radius(radius:number){
+		this._radius = radius;
+	}
+
 	public get radius(): number {
 		return this._radius;
 	}
