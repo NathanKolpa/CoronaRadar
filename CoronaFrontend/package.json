@@ -4,7 +4,7 @@
   "scripts": {
     "start": "parcel app/index.html",
     "build": "parcel build app/index.html",
-    "build-prod": "parcel NODE_ENV=prod build app/index.html"
+    "build-prod": " NODE_ENV=prod parcel build app/index.html"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.13.0",
