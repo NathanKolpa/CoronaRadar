@@ -8,6 +8,10 @@ import VectorSource from 'ol/source/Vector';
 import {fromLonLat} from "ol/proj";
 import {Waypoint} from "~src/Core/Map/Waypoint";
 import {IMap} from "~src/Core/Map/IMap";
+import {Stroke, Style} from "ol/style";
+import {Circle} from "ol/geom";
+import CircleStyle from "ol/style/Circle";
+import Fill from "ol/style/Fill";
 
 
 export class OpenlayersMap implements IMap {
@@ -42,6 +46,16 @@ export class OpenlayersMap implements IMap {
         ({
             geometry:  new Point(fromLonLat([point.cordX, point.cordY]))
         });
+
+        iconFeature.setStyle(new Style({
+            image: new CircleStyle({
+                radius: point.radius,
+                fill: new Fill({color: 'red'}),
+                stroke: new Stroke({
+                    color: [255,0,0], width: 2
+                })
+            })
+        }));
 
         this._vectorSource.addFeature(iconFeature);
     }
