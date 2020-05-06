@@ -3,7 +3,9 @@ package webapi;
 import business.model.Country;
 import business.model.World;
 import business.worlddata.WorldDataCache;
+import business.worlddata.WorldDataMerger;
 import business.worlddata.WorldDataSource;
+import infrastructure.BingGithubWorldDataSource;
 import infrastructure.BingWorldDataSource;
 import infrastructure.CurrentDateFactory;
 import infrastructure.rivm.RivmWorldDataSource;
@@ -27,7 +29,10 @@ public class WebApi
 
 	public WebApi()
 	{
-		dataSource = new WorldDataCache(new RivmWorldDataSource(), new CurrentDateFactory(), 60);
+		WorldDataMerger merger = new WorldDataMerger();
+		merger.getSources().add(new BingGithubWorldDataSource());
+		merger.getSources().add(new RivmWorldDataSource());
+		dataSource = new WorldDataCache(merger, new CurrentDateFactory(), 60);
 
 		cacheControl = CacheControl.maxAge(60, TimeUnit.SECONDS).noTransform().cachePublic();
 	}
@@ -49,6 +54,7 @@ public class WebApi
 		}
 		catch (Exception e)
 		{
+			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
 		}
 	}
@@ -65,6 +71,7 @@ public class WebApi
 		}
 		catch (Exception e)
 		{
+			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
 		}
 	}

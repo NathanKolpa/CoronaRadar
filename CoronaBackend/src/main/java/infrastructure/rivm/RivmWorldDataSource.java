@@ -57,7 +57,7 @@ public class RivmWorldDataSource implements WorldDataSource
 		netherlands.getProvinces().put("zeeland", new Province("Zeeland", null, null, new Location( 3.8496815, 51.4940309)));
 		netherlands.getProvinces().put("noordholland", new Province("Noord-Holland", null, null, new Location(4.788474, 52.5205869)));
 		netherlands.getProvinces().put("utrecht", new Province("Utrecht", null, null, new Location(5.1214201, 52.0907374)));
-		netherlands.getProvinces().put("zuidholland", new Province("Zuidholland", null, null, new Location(4.4937836, 52.0207975)));
+		netherlands.getProvinces().put("zuidholland", new Province("Zuid-Holland", null, null, new Location(4.4937836, 52.0207975)));
 
 		Scanner scanner = new Scanner(csv);
 		scanner.nextLine();
@@ -99,8 +99,12 @@ public class RivmWorldDataSource implements WorldDataSource
 			}
 		}
 
-
 		scanner.close();
+
+		netherlands.getProvinces().put("noord_brabant", netherlands.getProvinces().remove("noord-brabant"));
+		netherlands.getProvinces().put("noord_holland", netherlands.getProvinces().remove("noordholland"));
+		netherlands.getProvinces().put("zuid_holland", netherlands.getProvinces().remove("zuidholland"));
+		netherlands.getProvinces().put("friesland", netherlands.getProvinces().remove("fiesland"));
 
 		return world;
 	}
