@@ -1,4 +1,3 @@
-import {IMap} from "~Core/Map/IMap";
 import OSM from "ol/source/OSM";
 import {Tile as TileLayer, Vector as VectorLayer} from "ol/layer";
 import Point from "ol/geom/Point";
@@ -7,7 +6,8 @@ import Map from 'ol/Map';
 import View from 'ol/View';
 import VectorSource from 'ol/source/Vector';
 import {fromLonLat} from "ol/proj";
-import {Waypoint} from "~Core/Map/Waypoint";
+import {Waypoint} from "~src/Core/Map/Waypoint";
+import {IMap} from "~src/Core/Map/IMap";
 
 
 export class OpenlayersMap implements IMap {
