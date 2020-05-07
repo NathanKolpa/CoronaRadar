@@ -1,74 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/Img/radar.png"/>
-    <title>Corona radar</title>
-    <style>
-        #map {
-            width: 100%;
-            height: 65vh;
-            border-color: #FFEB0F;
-            border-style: outset;
-        }
-        #container{
-            background-color: black;
-            border-color: #FFEB0F;
-            border-style: outset;
-        }
-        #titleFilter{
-            background-color: black;
-            color: white;
-            border-color: #FFEB0F;
-            border-style: outset;
-        }
-        #provincieInfo{
-            background-color: black;
-            height: 30vh;
-            color: white;
-            border-color: #FFEB0F;
-            border-style: outset;
-        }
-        #footer{
-            background-color: black;
-            text-align: center;
-            color: white;
-            height: auto;
-        }
-    </style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="shortcut icon" type="image/x-icon" href="assets/Img/radar.png"/>
+	<title>Corona radar</title>
+	<style>
+		#map {
+			width: 100%;
+			height: 65vh;
+			border-color: #FFEB0F;
+			border-style: outset;
+		}
 
-    <title>CoronaRadar</title>
-    <script src="./app.ts" defer></script>
+		#container {
+			background-color: black;
+			border-color: #FFEB0F;
+			border-style: outset;
+		}
+
+		#titleFilter {
+			background-color: black;
+			color: white;
+			border-color: #FFEB0F;
+			border-style: outset;
+		}
+
+		#provincieInfo {
+			background-color: black;
+			height: 30vh;
+			color: white;
+			border-color: #FFEB0F;
+			border-style: outset;
+		}
+
+		#footer {
+			background-color: black;
+			text-align: center;
+			color: white;
+			height: auto;
+		}
+	</style>
+
+	<title>CoronaRadar</title>
+	<script src="./app.ts" defer></script>
 </head>
 <body>
-    <div class="container-fluid" id="container">
-        <div class="row">
-            <div class="col-md-3" id="titleFilter">
-                <h2>CoronaRader</h2>
-                <h4>Filter</h4>
-                <h5>Cases</h5>
-                <input type="checkbox" id="confirmdCases" checked="true">
-                <label for="confirmdCases">Confirmd Cases</label><br>
-                <input type="checkbox" id="confirmdDeath" checked="true">
-                <label for="confirmdDeath">Confirmd Death</label><br>
-                <!--<h6>Map</h6> -->
-            </div>
-            <div class="col-md-9">
-                <div id="map" class="map"></div>
-            </div>
-        </div>
-        <div class="row row-cols-2" id="provincieInfo">
-            <div class="col-md-4">
-                <canvas id="graph" width="400" height="190"></canvas>
-            </div>
-            <div class="col-md-auto"></div>
-        </div>
-        <div class="row row-cols-1" id="footer">
-            <div class="col">
-                <p>Copyright &copy; 2020 - Alle rechten voorbehouden.</p>
-            </div>
-        </div>
-    </div>
+<div class="container-fluid" id="container">
+	<div class="row">
+		<div class="col-md-3" id="titleFilter">
+			<h2>CoronaRader</h2>
+			<h4>Filter</h4>
+			<h5>Cases</h5>
+			<input type="checkbox" id="confirmdCases" checked="true">
+			<label for="confirmdCases">Confirmd Cases</label><br>
+			<input type="checkbox" id="confirmdDeath" checked="true">
+			<label for="confirmdDeath">Confirmd Death</label><br>
+			<!--<h6>Map</h6> -->
+		</div>
+		<div class="col-md-9">
+			<div id="map" class="map"></div>
+		</div>
+	</div>
+	<div class="row row-cols-2" id="provincieInfo">
+		<div class="col-6">
+			<div class="chart-container" style="position: relative; height:100%;">
+				<canvas id="graph"></canvas>
+			</div>
+		</div>
+		<div class="col-md-auto"></div>
+	</div>
+	<div class="row row-cols-1" id="footer">
+		<div class="col">
+			<p>Copyright &copy; 2020 - Alle rechten voorbehouden.</p>
+		</div>
+	</div>
+</div>
 </body>
 </html>

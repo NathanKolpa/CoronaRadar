@@ -5,13 +5,10 @@ import {World} from "~src/Core/Model/World";
 
 export class CoronaMap {
 
-	private _world: World | undefined;
-
-	constructor(private _map: IMap, private _worldGetter: IWorldGetter) {
+	constructor(private _map: IMap, private _world: World) {
 	}
 
-	public async load(): Promise<void> {
-		this._world = await this._worldGetter.getWorld();
+	public load(): void {
 		this.update()
 	}
 

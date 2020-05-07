@@ -1,10 +1,10 @@
-import { ApiWorldGetter } from "~src/Infrastructure/Api/ApiWorldGetter";
-import { Http } from "~src/Infrastructure/Api/Http";
-import { IConfig } from "~src/Core/Config/IConfig";
-import { ProcessConfig } from "~src/Infrastructure/Config/ProcessConfig";
 import { Chart } from "chart.js"
 import { World } from "~src/Core/Model/World";
 export class Charts {
+
+    private readonly ctx;
+    private myChart: Chart;
+
     public constructor(private htmlElement: CanvasRenderingContext2D) {
         this.ctx = htmlElement;
 
@@ -99,20 +99,15 @@ export class Charts {
     private provinces = new Array<string>();
 
 
-    public async setWorld(world: World) {
+    public setWorld(world: World) {
         world.countries.forEach(((country, countryId) => {
             country.provinces.forEach((province, provinceId) => {
-                this.countsDeaths.push(province.death.statValue)
-                this.countsInfected.push(province.infected.statValue)
+                this.countsDeaths.push(province.death.statValue);
+                this.countsInfected.push(province.infected.statValue);
                 this.provinces.push(province.name);
-                console.log(province.death.statValue)
             });
         }));
 
         this.myChart.update();
     }
-
-    private ctx;
-
-    private myChart: Chart
 }

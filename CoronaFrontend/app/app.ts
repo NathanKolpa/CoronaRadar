@@ -23,17 +23,17 @@ const apiWorldGetter = new ApiWorldGetter(httpClient);
 (async () => {
 
 	const world = await apiWorldGetter.getWorld();
+
 	const page = new MainPage();
-	const coronaMap = new CoronaMap(map, apiWorldGetter);
+	const chart = new Charts(((document.getElementById("graph") as HTMLCanvasElement).getContext("2d")));
+	const coronaMap = new CoronaMap(map, world);
 
 	page.onFilterChange((filter: IFilter) => {
 		coronaMap.updateFilter(filter.includeDeaths, filter.includeConfirmedCases);
 	});
 
-	await coronaMap.load();
+	chart.setWorld(world);
 
-	var chart = new Charts(((document.getElementById("graph") as HTMLCanvasElement).getContext("2d")));
-	await chart.setWorld(world);
-  
+	coronaMap.load();
 	page.load();
 })();
