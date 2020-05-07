@@ -11,7 +11,7 @@ export class Charts {
         this.myChart = new Chart(this.ctx, {
             type: 'bar',
             data: {
-                labels: ["Drenthe", "Flevoland", "Gelderland", "Groningen", "Noord-holland", "Limburg", "Overijssel", "Zeeland", "Zuid-holland", "Noord-brabant", "Utrecht", "Friesland"],
+                labels: this.provinces,
                 datasets: [{
                     label: 'Doden per provincie',
                     data: this.countsDeaths,
@@ -96,6 +96,7 @@ export class Charts {
 
     private countsDeaths = new Array<number>();
     private countsInfected = new Array<number>();
+    private provinces = new Array<string>();
 
 
     public async setWorld(world: World) {
@@ -103,6 +104,7 @@ export class Charts {
             country.provinces.forEach((province, provinceId) => {
                 this.countsDeaths.push(province.death.statValue)
                 this.countsInfected.push(province.infected.statValue)
+                this.provinces.push(province.name);
                 console.log(province.death.statValue)
             });
         }));
