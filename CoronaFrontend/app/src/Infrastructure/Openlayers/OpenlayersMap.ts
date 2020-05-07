@@ -9,9 +9,11 @@ import {fromLonLat} from "ol/proj";
 import {Waypoint} from "~src/Core/Map/Waypoint";
 import {IMap} from "~src/Core/Map/IMap";
 import {Stroke, Style} from "ol/style";
-import {Circle} from "ol/geom";
 import CircleStyle from "ol/style/Circle";
 import Fill from "ol/style/Fill";
+import Overlay from 'ol/Overlay';
+import {toStringHDMS} from 'ol/coordinate';
+import {toLonLat} from 'ol/proj';
 
 
 export class OpenlayersMap implements IMap {
@@ -21,6 +23,18 @@ export class OpenlayersMap implements IMap {
     constructor(target: string) {
 
         this._vectorSource = new VectorSource();
+
+        let container = document.getElementById('popup');
+
+        let overlay = new Overlay({
+            element: container,
+            autoPan: true,
+            stopEvent: false,
+            autoPanAnimation: {
+                duration: 250
+            }
+        });
+
 
         this._map = new Map
         ({
@@ -34,6 +48,7 @@ export class OpenlayersMap implements IMap {
                     updateWhileInteracting: true
                 }),
             ],
+            overlays: [overlay],
             view: new View
             ({
                 center: fromLonLat([6, 52.1326]),
@@ -41,6 +56,29 @@ export class OpenlayersMap implements IMap {
             })
         });
 
+        let content = document.getElementById('popup-content');
+        let closer = document.getElementById('popup-closer');
+
+        /**
+         * Add a click handler to hide the popup.
+         * @return {boolean} Don't follow the href.
+         */
+        closer.onclick = function() {
+            overlay.setPosition(undefined);
+            closer.blur();
+            return false;
+        };
+
+
+        this._map.on('singleclick', (evt) => {
+           let feature = this._map.forEachFeatureAtPixel(evt.pixel, (feature => {
+               return feature;
+           }))
+
+            if(feature) {
+                overlay.setPosition(feature.getGeometry().getCoordinates());
+            }
+        });
     }
 
     addWaypoint(point: Waypoint)
@@ -49,6 +87,7 @@ export class OpenlayersMap implements IMap {
         ({
             geometry:  new Point(fromLonLat([point.cordX, point.cordY]))
         });
+
 
         iconFeature.setStyle((feature, resolution) => {
             return new Style({
@@ -65,5 +104,4 @@ export class OpenlayersMap implements IMap {
     clearWaypoints() {
         this._vectorSource.clear();
     }
-
 }
