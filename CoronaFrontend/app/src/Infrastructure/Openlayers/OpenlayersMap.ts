@@ -40,10 +40,9 @@ export class OpenlayersMap implements IMap {
         ({
             target: target,
             layers: [
-
                 new TileLayer({source: new OSM()}),
-
-                new VectorLayer({source: this._vectorSource,
+                new VectorLayer({
+                    source: this._vectorSource,
                     updateWhileAnimating: true,
                     updateWhileInteracting: true
                 }),
@@ -70,15 +69,15 @@ export class OpenlayersMap implements IMap {
         };
 
 
-        this._map.on('singleclick', (evt) => {
-           let feature = this._map.forEachFeatureAtPixel(evt.pixel, (feature => {
-               return feature;
-           }))
-
-            if(feature) {
-                overlay.setPosition(feature.getGeometry().getCoordinates());
-            }
-        });
+        // this._map.on('singleclick', (evt) => {
+        //    let feature = this._map.forEachFeatureAtPixel(evt.pixel, (feature => {
+        //        return feature;
+        //    }))
+        //
+        //     if(feature) {
+        //         overlay.setPosition(feature.getGeometry().getCoordinates());
+        //     }
+        // });
     }
 
     addWaypoint(point: Waypoint)
@@ -87,7 +86,6 @@ export class OpenlayersMap implements IMap {
         ({
             geometry:  new Point(fromLonLat([point.cordX, point.cordY]))
         });
-
 
         iconFeature.setStyle((feature, resolution) => {
             return new Style({

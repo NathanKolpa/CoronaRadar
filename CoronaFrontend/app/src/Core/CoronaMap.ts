@@ -8,13 +8,7 @@ export class CoronaMap {
 	constructor(private _map: IMap, private _world: World) {
 	}
 
-	public load(): void {
-		this.update()
-	}
-
 	public updateFilter(includeDeaths: boolean, includeInfected: boolean): void {
-		if(!this._world)
-			return;
 
 		this._world.countries.forEach(((country) => {
 			country.provinces.forEach((province) => {
@@ -26,7 +20,7 @@ export class CoronaMap {
 		this.update();
 	}
 
-	private update(): void {
+	public update(): void {
 
 		this._map.clearWaypoints();
 

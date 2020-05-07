@@ -33,7 +33,5 @@ const apiWorldGetter = new ApiWorldGetter(httpClient);
 	});
 
 	chart.setWorld(world);
-
-	coronaMap.load();
 	page.load();
 })();

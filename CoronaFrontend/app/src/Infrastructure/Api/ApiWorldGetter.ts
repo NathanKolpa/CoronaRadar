@@ -38,7 +38,7 @@ export class ApiWorldGetter implements IWorldGetter {
 					deaths = new CovidStat(origin, resProvince.deaths.last_updated, resProvince.deaths.value);
 				}
 
-				let province = new Province(resProvince.name, new Location(resProvince.location.lon, resProvince.location.lat), infected, deaths);
+				let province = new Province(resProvince.name, new Location(resProvince.location.lat, resProvince.location.lon), infected, deaths);
 
 				country.provinces.set(provinceId, province);
 			}
