@@ -13,14 +13,6 @@ public class World
 		return countries;
 	}
 
-	public Country getNetherlands() throws NullPointerException
-	{
-		if(!countries.containsKey("netherlands"))
-			throw new NullPointerException();
-
-		return countries.get("netherlands");
-	}
-
 	public int getTotalInfected()
 	{
 		return countries.entrySet().stream().mapToInt(value -> value.getValue().getTotalInfected()).sum();

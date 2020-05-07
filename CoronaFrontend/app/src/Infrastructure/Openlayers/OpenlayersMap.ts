@@ -1,4 +1,3 @@
-import {IMap} from "~Core/Map/IMap";
 import OSM from "ol/source/OSM";
 import {Tile as TileLayer, Vector as VectorLayer} from "ol/layer";
 import Point from "ol/geom/Point";
@@ -7,7 +6,12 @@ import Map from 'ol/Map';
 import View from 'ol/View';
 import VectorSource from 'ol/source/Vector';
 import {fromLonLat} from "ol/proj";
-import {Waypoint} from "~Core/Map/Waypoint";
+import {Waypoint} from "~src/Core/Map/Waypoint";
+import {IMap} from "~src/Core/Map/IMap";
+import {Stroke, Style} from "ol/style";
+import {Circle} from "ol/geom";
+import CircleStyle from "ol/style/Circle";
+import Fill from "ol/style/Fill";
 
 
 export class OpenlayersMap implements IMap {
@@ -25,12 +29,15 @@ export class OpenlayersMap implements IMap {
 
                 new TileLayer({source: new OSM()}),
 
-                new VectorLayer({source: this._vectorSource}),
+                new VectorLayer({source: this._vectorSource,
+                    updateWhileAnimating: true,
+                    updateWhileInteracting: true
+                }),
             ],
             view: new View
             ({
-                center: [0, 0],
-                zoom: 0
+                center: fromLonLat([6, 52.1326]),
+                zoom: 7.5
             })
         });
 
@@ -41,6 +48,15 @@ export class OpenlayersMap implements IMap {
         let iconFeature = new Feature
         ({
             geometry:  new Point(fromLonLat([point.cordX, point.cordY]))
+        });
+
+        iconFeature.setStyle((feature, resolution) => {
+            return new Style({
+                image: new CircleStyle({
+                    radius: point.radius / resolution,
+                    fill: new Fill({color: 'red'}),
+                }),
+            })
         });
 
         this._vectorSource.addFeature(iconFeature);

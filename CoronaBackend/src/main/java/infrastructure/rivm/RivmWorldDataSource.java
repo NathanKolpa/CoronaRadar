@@ -46,18 +46,18 @@ public class RivmWorldDataSource implements WorldDataSource
 
 		world.getCountries().put("netherlands", netherlands);
 
-		netherlands.getProvinces().put("gelderland", new Province("Gelderland", null, null, new Location(51.9851034,5.8987296)));
-		netherlands.getProvinces().put("drenthe", new Province("Drenthe", null, null, new Location(52.9476012,6.6230586)));
-		netherlands.getProvinces().put("flevoland", new Province("Flevoland", null, null, new Location(52.4484375,5.4235397)));
-		netherlands.getProvinces().put("fiesland", new Province("Fiesland", null, null, new Location(53.1641642,5.7817542)));
-		netherlands.getProvinces().put("groningen", new Province("Groningen", null, null, new Location(53.2193835,6.5665018)));
-		netherlands.getProvinces().put("limburg", new Province("Limburg", null, null, new Location(51.4427238,6.0608726)));
-		netherlands.getProvinces().put("noord-brabant", new Province("Noord-Brabant", null, null, new Location( 51.4826537,5.2321687)));
-		netherlands.getProvinces().put("overijssel", new Province("Overijssel", null, null, new Location( 52.4076329,6.897314)));
-		netherlands.getProvinces().put("zeeland", new Province("Zeeland", null, null, new Location( 51.4940309,3.8496815)));
-		netherlands.getProvinces().put("noordholland", new Province("Noord-Holland", null, null, new Location(52.5205869,4.788474)));
-		netherlands.getProvinces().put("utrecht", new Province("Utrecht", null, null, new Location(52.0907374,5.1214201)));
-		netherlands.getProvinces().put("zuidholland", new Province("Zuidholland", null, null, new Location(52.0207975, 4.4937836)));
+		netherlands.getProvinces().put("gelderland", new Province("Gelderland", null, null, new Location(5.8987296, 51.9851034)));
+		netherlands.getProvinces().put("drenthe", new Province("Drenthe", null, null, new Location(6.6230586, 52.9476012)));
+		netherlands.getProvinces().put("flevoland", new Province("Flevoland", null, null, new Location(5.4235397, 52.4484375)));
+		netherlands.getProvinces().put("fiesland", new Province("Fiesland", null, null, new Location(5.7817542, 53.1641642)));
+		netherlands.getProvinces().put("groningen", new Province("Groningen", null, null, new Location(6.5665018, 53.2193835)));
+		netherlands.getProvinces().put("limburg", new Province("Limburg", null, null, new Location(6.0608726,51.4427238)));
+		netherlands.getProvinces().put("noord-brabant", new Province("Noord-Brabant", null, null, new Location( 5.2321687, 51.4826537)));
+		netherlands.getProvinces().put("overijssel", new Province("Overijssel", null, null, new Location( 6.897314, 52.4076329)));
+		netherlands.getProvinces().put("zeeland", new Province("Zeeland", null, null, new Location( 3.8496815, 51.4940309)));
+		netherlands.getProvinces().put("noordholland", new Province("Noord-Holland", null, null, new Location(4.788474, 52.5205869)));
+		netherlands.getProvinces().put("utrecht", new Province("Utrecht", null, null, new Location(5.1214201, 52.0907374)));
+		netherlands.getProvinces().put("zuidholland", new Province("Zuid-Holland", null, null, new Location(4.4937836, 52.0207975)));
 
 		Scanner scanner = new Scanner(csv);
 		scanner.nextLine();
@@ -99,8 +99,12 @@ public class RivmWorldDataSource implements WorldDataSource
 			}
 		}
 
-
 		scanner.close();
+
+		netherlands.getProvinces().put("noord_brabant", netherlands.getProvinces().remove("noord-brabant"));
+		netherlands.getProvinces().put("noord_holland", netherlands.getProvinces().remove("noordholland"));
+		netherlands.getProvinces().put("zuid_holland", netherlands.getProvinces().remove("zuidholland"));
+		netherlands.getProvinces().put("friesland", netherlands.getProvinces().remove("fiesland"));
 
 		return world;
 	}
