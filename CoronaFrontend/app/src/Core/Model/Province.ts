@@ -2,6 +2,10 @@ import {CovidStat} from "./CovidStat";
 import {Location} from "./Location";
 
 export class Province {
+
+    private _dontCountDeaths: boolean = false;
+    private _dontCountInfected: boolean = false;
+
     public constructor(private _name: string, private _location: Location, private _infected: CovidStat | null, private _death: CovidStat | null) {
     }
 
@@ -27,17 +31,33 @@ export class Province {
         return this._location;
     }
 
+    public set dontCountInfected(value: boolean) {
+        this._dontCountInfected = value;
+    }
+
+    public set dontCountDeaths(value: boolean) {
+        this._dontCountDeaths = value;
+    }
+
+    public get dontCountInfected(): boolean {
+        return this._dontCountInfected;
+    }
+
+    public get dontCountDeaths(): boolean {
+        return this._dontCountDeaths;
+    }
+
     public get radius(): number | null {
 
         let infected = 0;
-        let deatds = 0;
+        let deaths = 0;
 
-        if (this.infected.statValue != null) {
+        if (this.infected.statValue != null && !this._dontCountInfected) {
             infected = this.infected.statValue;
         }
-        if (this.death.statValue != null) {
-            deatds = this.death.statValue;
+        if (this.death.statValue != null && !this._dontCountDeaths) {
+            deaths = this.death.statValue;
         }
-        return (deatds + infected);
+        return (deaths * 5 + infected);
     }
 }

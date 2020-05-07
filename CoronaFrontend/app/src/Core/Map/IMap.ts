@@ -4,5 +4,6 @@ import {Waypoint} from "./Waypoint";
 export interface IMap
 {
     addWaypoint(point: Waypoint);
+    clearWaypoints();
 }
 
