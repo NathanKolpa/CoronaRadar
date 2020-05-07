@@ -62,4 +62,8 @@ export class OpenlayersMap implements IMap {
         this._vectorSource.addFeature(iconFeature);
     }
 
+    clearWaypoints() {
+        this._vectorSource.clear();
+    }
+
 }
