@@ -9,7 +9,7 @@ import {ProcessConfig} from "~src/Infrastructure/Config/ProcessConfig";
 import {CoronaMap} from "~src/Core/CoronaMap";
 import {ApiWorldGetter} from "~src/Infrastructure/Api/ApiWorldGetter";
 import {Http} from "~src/Infrastructure/Api/Http";
-import {Charts} from "~src/Infrastructure/Charts/chart"
+import {Charts} from "~src/Infrastructure/Charts/Chart";
 import {IFilter, MainPage} from "~src/Infrastructure/Pages/MainPage";
 
 const config: IConfig = new ProcessConfig();
