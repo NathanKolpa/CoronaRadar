@@ -1,28 +1,17 @@
 package business.model;
 
-public class Province
+public class Province extends Area
 {
-	private String name;
 	private CovidStat deathCount;
 	private CovidStat infectedCount;
 	private Location location;
 
 	public Province(String name, CovidStat deathCount, CovidStat infectedCount, Location location)
 	{
-		this.name = name;
+		super(name);
 		this.deathCount = deathCount;
 		this.infectedCount = infectedCount;
 		this.location = location;
-	}
-
-	public String getName()
-	{
-		return name;
-	}
-
-	public void setName(String name)
-	{
-		this.name = name;
 	}
 
 	public CovidStat getDeathCount()
@@ -40,12 +29,31 @@ public class Province
 		return infectedCount;
 	}
 
-	public Location getLocation() {
+	public Location getLocation()
+	{
 		return location;
 	}
 
 	public void setInfectedCount(CovidStat infectedCount)
 	{
 		this.infectedCount = infectedCount;
+	}
+
+	/**
+	 * Merge the province with this province
+	 * */
+	public void merge(Province province)
+	{
+		if (province.getDeathCount() != null && (getDeathCount() == null || getDeathCount().getLastUpdated()
+				.before(province.getDeathCount().getLastUpdated())))
+		{
+			setDeathCount(province.getDeathCount());
+		}
+
+		if (province.getInfectedCount() != null && (getInfectedCount() == null || getInfectedCount().getLastUpdated()
+				.before(province.getInfectedCount().getLastUpdated())))
+		{
+			setInfectedCount(province.getInfectedCount());
+		}
 	}
 }
