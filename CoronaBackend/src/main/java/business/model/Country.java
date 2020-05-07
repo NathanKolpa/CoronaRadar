@@ -1,27 +1,15 @@
 package business.model;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Country
+public class Country extends Area
 {
-	private String name;
 	private HashMap<String, Province> provinces = new HashMap<>();
 
 	public Country(String name)
 	{
-		this.name = name;
-	}
-
-	public String getName()
-	{
-		return name;
-	}
-
-	public void setName(String name)
-	{
-		this.name = name;
+		super(name);
 	}
 
 	public int getTotalInfected()
@@ -33,8 +21,28 @@ public class Country
 	{
 		return provinces.entrySet().stream().mapToInt(value -> value.getValue().getDeathCount() != null ? value.getValue().getDeathCount().getStatValue():0).sum();
 	}
+
 	public Map<String, Province> getProvinces()
 	{
 		return provinces;
+	}
+
+	/**
+	 * Merge the country with this country
+	 * */
+	public void merge(Country country)
+	{
+		for (Map.Entry<String, Province> province : country.getProvinces().entrySet())
+		{
+			if (!getProvinces().containsKey(province.getKey()))
+			{
+				getProvinces().put(province.getKey(), province.getValue());
+			}
+			else
+			{
+				Province mergedProvince = getProvinces().get(province.getKey());
+				mergedProvince.merge(province.getValue());
+			}
+		}
 	}
 }

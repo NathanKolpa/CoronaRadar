@@ -15,11 +15,30 @@ public class World
 
 	public int getTotalInfected()
 	{
-		return countries.entrySet().stream().mapToInt(value -> value.getValue().getTotalInfected()).sum();
+		return countries.values().stream().mapToInt(Country::getTotalInfected).sum();
 	}
 
 	public int getTotalDead()
 	{
-		return countries.entrySet().stream().mapToInt(value -> value.getValue().getTotalDead()).sum();
+		return countries.values().stream().mapToInt(Country::getTotalDead).sum();
+	}
+
+	/**
+	 * Merge data with this world
+	 * */
+	public void merge(World world)
+	{
+		for (Map.Entry<String, Country> country : world.getCountries().entrySet())
+		{
+			if (!getCountries().containsKey(country.getKey()))
+			{
+				getCountries().put(country.getKey(), country.getValue());
+			}
+			else
+			{
+				Country mergedCountry = getCountries().get(country.getKey());
+				mergedCountry.merge(country.getValue());
+			}
+		}
 	}
 }

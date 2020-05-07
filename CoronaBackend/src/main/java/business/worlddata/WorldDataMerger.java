@@ -25,51 +25,9 @@ public class WorldDataMerger implements WorldDataSource
 		World mergedWorld = new World();
 		List<World> otherWorlds = getWorlds();
 
-
 		for (World world : otherWorlds)
 		{
-			for (Map.Entry<String, Country> country : world.getCountries().entrySet())
-			{
-				if (!mergedWorld.getCountries().containsKey(country.getKey()))
-				{
-					mergedWorld.getCountries().put(country.getKey(), country.getValue());
-				}
-				else
-				{
-					Country mergedCountry = mergedWorld.getCountries().get(country.getKey());
-
-					for (Map.Entry<String, Province> province : country.getValue().getProvinces().entrySet())
-					{
-						if (!mergedCountry.getProvinces().containsKey(province.getKey()))
-						{
-							mergedCountry.getProvinces().put(province.getKey(), province.getValue());
-						}
-						else
-						{
-							//merge covid stats
-							Province mergedProvince = mergedCountry.getProvinces().get(province.getKey());
-
-							if (province.getValue()
-									.getDeathCount() != null && (mergedProvince.getDeathCount() == null || mergedProvince
-									.getDeathCount()
-									.getLastUpdated()
-									.before(province.getValue().getDeathCount().getLastUpdated())))
-							{
-								mergedProvince.setDeathCount(province.getValue().getDeathCount());
-							}
-
-							if (province.getValue()
-									.getInfectedCount() != null && (mergedProvince.getInfectedCount() == null || mergedProvince
-									.getInfectedCount()
-									.getLastUpdated()
-									.before(province.getValue().getInfectedCount().getLastUpdated())))
-							{
-								mergedProvince.setInfectedCount(province.getValue().getInfectedCount());
-							}
-						}
-					}
-				}
-			}
+			mergedWorld.merge(world);
 		}
 
 		return mergedWorld;
