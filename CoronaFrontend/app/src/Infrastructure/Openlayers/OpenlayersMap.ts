@@ -17,89 +17,87 @@ import {toLonLat} from 'ol/proj';
 
 
 export class OpenlayersMap implements IMap {
-    private readonly _map: Map;
-    private readonly _vectorSource: VectorSource;
+	private readonly _map: Map;
+	private readonly _vectorSource: VectorSource;
 
-    constructor(target: string) {
+	constructor(target: string) {
 
-        this._vectorSource = new VectorSource();
+		this._vectorSource = new VectorSource();
 
-        let container = document.getElementById('popup');
+		let container = document.getElementById('popup');
 
-        let overlay = new Overlay({
-            element: container,
-            autoPan: true,
-            stopEvent: false,
-            autoPanAnimation: {
-                duration: 250
-            }
-        });
-
-
-        this._map = new Map
-        ({
-            target: target,
-            layers: [
-                new TileLayer({source: new OSM()}),
-                new VectorLayer({
-                    source: this._vectorSource,
-                    updateWhileAnimating: true,
-                    updateWhileInteracting: true
-                }),
-            ],
-            overlays: [overlay],
-            view: new View
-            ({
-                center: fromLonLat([6, 52.1326]),
-                zoom: 7.5
-            })
-        });
-
-        let content = document.getElementById('popup-content');
-        let closer = document.getElementById('popup-closer');
-
-        /**
-         * Add a click handler to hide the popup.
-         * @return {boolean} Don't follow the href.
-         */
-        closer.onclick = function() {
-            overlay.setPosition(undefined);
-            closer.blur();
-            return false;
-        };
+		let overlay = new Overlay({
+			element: container,
+			autoPan: true,
+			stopEvent: false,
+			autoPanAnimation: {
+				duration: 250
+			}
+		});
 
 
-        // this._map.on('singleclick', (evt) => {
-        //    let feature = this._map.forEachFeatureAtPixel(evt.pixel, (feature => {
-        //        return feature;
-        //    }))
-        //
-        //     if(feature) {
-        //         overlay.setPosition(feature.getGeometry().getCoordinates());
-        //     }
-        // });
-    }
+		this._map = new Map
+		({
+			target: target,
+			layers: [
+				new TileLayer({source: new OSM()}),
+				new VectorLayer({
+					source: this._vectorSource,
+					updateWhileAnimating: true,
+					updateWhileInteracting: true
+				}),
+			],
+			overlays: [overlay],
+			view: new View
+			({
+				center: fromLonLat([6, 52.1326]),
+				zoom: 7.5
+			})
+		});
 
-    addWaypoint(point: Waypoint)
-    {
-        let iconFeature = new Feature
-        ({
-            geometry:  new Point(fromLonLat([point.cordX, point.cordY]))
-        });
+		let content = document.getElementById('popup-content');
+		let closer = document.getElementById('popup-closer');
 
-        iconFeature.setStyle((feature, resolution) => {
-            return new Style({
-                image: new CircleStyle({
-                    radius: point.radius / resolution,
-                    fill: new Fill({color: 'red'}),
-                }),
-            })
-        });
+		/**
+		 * Add a click handler to hide the popup.
+		 * @return {boolean} Don't follow the href.
+		 */
+		closer.onclick = function () {
+			overlay.setPosition(undefined);
+			closer.blur();
+			return false;
+		};
 
-        this._vectorSource.addFeature(iconFeature);
-    }
+		this._map.on('singleclick', (evt) => {
+			let feature = this._map.forEachFeatureAtPixel(evt.pixel, (feature => {
+				return feature;
+			}))
 
-    clearWaypoints() {
-        this._vectorSource.clear();
-    }
+			if (feature) {
+				overlay.setPosition((feature.getGeometry() as any).getCoordinates());
+			}
+		});
+	}
+
+	addWaypoint(point: Waypoint) {
+		let iconFeature = new Feature
+		({
+			geometry: new Point(fromLonLat([point.cordX, point.cordY]))
+		});
+
+		iconFeature.setStyle((feature, resolution) => {
+			return new Style({
+				image: new CircleStyle({
+					radius: point.radius / resolution,
+					fill: new Fill({color: 'red'}),
+				}),
+			})
+		});
+
+		this._vectorSource.addFeature(iconFeature);
+	}
+
+	clearWaypoints() {
+		this._vectorSource.clear();
+	}
 }
