@@ -26,7 +26,13 @@ export class CoronaMap {
 
 		this._world.countries.forEach(((country, countryId) => {
 			country.provinces.forEach((province, provinceId) => {
-				this._map.addWaypoint(new Waypoint(province.name, province.location.lat, province.location.lon, province.radius));
+				let deaths = !province.death ? '<span>Deaths: Unknown</span>' :
+					`<span title="source: ${province.death.dataOrigin.name} | last updated ${province.death.lastUpdate}">Deaths: ${province.death.statValue}</span>`;
+				let infected = !province.infected ? '<p>Infected: Unknown</p>' :
+					`<span title="source: ${province.infected.dataOrigin.name} | last updated ${province.infected.lastUpdate}">Infected: ${province.infected.statValue}</span>`;
+				let html = deaths + '<br>' + infected;
+
+				this._map.addWaypoint(new Waypoint(province.name, html, province.location.lat, province.location.lon, province.radius));
 			});
 		}));
 	}
