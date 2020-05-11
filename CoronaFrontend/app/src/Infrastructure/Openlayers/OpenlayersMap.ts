@@ -18,6 +18,8 @@ import {toLonLat} from 'ol/proj';
 
 export class OpenlayersMap implements IMap {
 	private readonly _map: Map;
+	private readonly _popupContent : HTMLElement;
+	private readonly _popupTitle : HTMLElement;
 	private readonly _vectorSource: VectorSource;
 
 	constructor(target: string) {
@@ -55,7 +57,8 @@ export class OpenlayersMap implements IMap {
 			})
 		});
 
-		let content = document.getElementById('popup-content');
+		this._popupContent = document.getElementById('popup-content');
+		this._popupTitle = document.getElementById('popup-title');
 		let closer = document.getElementById('popup-closer');
 
 		/**
@@ -71,10 +74,14 @@ export class OpenlayersMap implements IMap {
 		this._map.on('singleclick', (evt) => {
 			let feature = this._map.forEachFeatureAtPixel(evt.pixel, (feature => {
 				return feature;
-			}))
+			}));
 
 			if (feature) {
 				overlay.setPosition((feature.getGeometry() as any).getCoordinates());
+
+				let waypoint = feature.getProperties() as Waypoint;
+				this._popupContent.innerHTML = waypoint.description;
+				this._popupTitle.innerText = waypoint.descriptionName;
 			}
 		});
 	}
@@ -93,6 +100,8 @@ export class OpenlayersMap implements IMap {
 				}),
 			})
 		});
+
+		iconFeature.setProperties(point);
 
 		this._vectorSource.addFeature(iconFeature);
 	}

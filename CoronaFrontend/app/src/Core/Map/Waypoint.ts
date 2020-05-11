@@ -1,5 +1,5 @@
 export class Waypoint {
-	constructor(private _descriptionName: string, private _cordX: number, private _cordY: number, private _radius: number) {
+	constructor(private _descriptionName: string, private _description: string, private _cordX: number, private _cordY: number, private _radius: number) {
 	}
 
 //===========================================================================================================
@@ -37,6 +37,10 @@ export class Waypoint {
 
 	public get radius(): number {
 		return this._radius;
+	}
+
+	public get description(): string {
+		return this._description;
 	}
 }
 
