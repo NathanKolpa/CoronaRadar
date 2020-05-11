@@ -8,43 +8,34 @@
 	<style>
 		#map {
 			width: 100%;
-			height: 65vh;
-			border-color: #FFEB0F;
-			border-style: outset;
+			height: 100vh;
+			border: 2px solid black;
+			margin-bottom: 5vh;
 		}
 
 		#container {
-			background-color: black;
-			border-color: #FFEB0F;
-			border-style: outset;
+			background-color: white;
+			color: gray;
 		}
 
 		#titleFilter {
-			background-color: black;
-			color: white;
-			border-color: #FFEB0F;
-			border-style: outset;
+			background-color: white;
 		}
 
 		#provincieInfo {
-			background-color: black;
+			background-color: white;
 			height: 30vh;
-			color: white;
-			border-color: #FFEB0F;
-			border-style: outset;
 		}
 
 		#footer {
-			background-color: black;
+			background-color: white;
 			text-align: center;
-			color: white;
 			height: auto;
 		}
 
 		.ol-popup {
 			position: absolute;
 			background-color: white;
-			box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 			padding: 15px;
 			border-radius: 10px;
 			border: 1px solid #cccccc;
@@ -94,7 +85,7 @@
 <body>
 <div class="container-fluid" id="container">
 	<div class="row">
-		<div class="col-md-3" id="titleFilter">
+		<div class="col-md-1" id="titleFilter">
 			<h4>Filter</h4>
 			<h5>Cases</h5>
 			<input type="checkbox" id="confirmdCases" checked="true">
@@ -102,7 +93,7 @@
 			<input type="checkbox" id="confirmdDeath" checked="true">
 			<label for="confirmdDeath">Confirmd Death</label><br>
 		</div>
-		<div class="col-md-9">
+		<div class="col-md-11">
 			<div id="map" class="map"></div>
 			<div id="popup" class="ol-popup">
 				<a href="#" id="popup-closer" class="ol-popup-closer"></a>
@@ -114,7 +105,7 @@
 			<canvas id="graph" width="400" height="190"></canvas>    
 	<div class="row row-cols-1" id="footer">
 		<div class="col">
-			<p>Copyright &copy; 2020 - Alle rechten voorbehouden.</p>
+			<marquee scrollamount="100"><p style="color: red">Copyright &copy; 2020 - Alle rechten voorbehouden.</p></marquee>
 		</div>
 	</div>
 </div>
