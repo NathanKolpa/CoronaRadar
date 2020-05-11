@@ -1,8 +1,13 @@
 package webapi.reponse;
 
+import business.model.Council;
 import business.model.CovidStat;
 import business.model.Province;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.AbstractMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class ProvinceResponse
 {
@@ -35,4 +40,17 @@ public class ProvinceResponse
 	{
 		return new LocationResponse(province.getLocation());
 	}
+
+
+
+		@JsonProperty("councils")
+		public Map<String, CouncilResponse> getCouncils()
+		{
+			return province.getCouncils()
+					.entrySet()
+					.stream()
+					.map(x -> new AbstractMap.SimpleEntry<String, CouncilResponse>(x.getKey(), new CouncilResponse(x.getValue())))
+					.collect(Collectors.toMap(AbstractMap.SimpleEntry::getKey, AbstractMap.SimpleEntry::getValue));
+		}
+
 }

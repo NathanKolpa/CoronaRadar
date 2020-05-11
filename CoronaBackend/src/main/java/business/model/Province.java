@@ -1,10 +1,14 @@
 package business.model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Province extends Area
 {
 	private CovidStat deathCount;
 	private CovidStat infectedCount;
 	private Location location;
+	private HashMap <String,Council> councils = new HashMap<>();
 
 	public Province(String name, CovidStat deathCount, CovidStat infectedCount, Location location)
 	{
@@ -39,6 +43,10 @@ public class Province extends Area
 		this.infectedCount = infectedCount;
 	}
 
+	public Map<String, Council> getCouncils()
+	{
+		return councils;
+	}
 	/**
 	 * Merge the province with this province
 	 * */
@@ -54,6 +62,19 @@ public class Province extends Area
 				.before(province.getInfectedCount().getLastUpdated())))
 		{
 			setInfectedCount(province.getInfectedCount());
+		}
+
+		for (Map.Entry<String, Council> council : province.getCouncils().entrySet())
+		{
+			if (!getCouncils().containsKey(council.getKey()))
+			{
+				getCouncils().put(council.getKey(), council.getValue());
+			}
+			else
+			{
+				Council mergedcouncil = getCouncils().get(council.getKey());
+				mergedcouncil.merge(council.getValue());
+			}
 		}
 	}
 }
