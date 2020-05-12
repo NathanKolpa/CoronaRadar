@@ -40,6 +40,8 @@ public class RivmWorldDataSource implements WorldDataSource
 	private World parseCsv(String csv) throws ParseException
 	{
 		ProvinceMapper mapper = new ProvinceMapper();
+		CouncilLocationMapper locationMapper = new CouncilLocationMapper();
+
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		World world = new World();
 		Country netherlands = new Country("Nederland");
@@ -79,6 +81,8 @@ public class RivmWorldDataSource implements WorldDataSource
 			int infectedCount = Integer.parseInt(parts[5]);
 			int deathCount = Integer.parseInt(parts[8]);
 
+			Council council = new Council(parts[2], new CovidStat(dataOrigin, date, deathCount), new CovidStat(dataOrigin, date, infectedCount), locationMapper.getCouncilLocation(parts[2]));
+
 			if(province.getInfectedCount() == null)
 			{
 				province.setInfectedCount(new CovidStat(dataOrigin, date, infectedCount));
@@ -97,6 +101,10 @@ public class RivmWorldDataSource implements WorldDataSource
 			{
 				province.getDeathCount().setStatValue(province.getDeathCount().getStatValue() + deathCount);
 			}
+
+			String councilId = parts[2].replaceAll("[^A-Za-z0-9\\[\\]]", "").toLowerCase();
+
+			province.getCouncils().put(councilId, council);
 		}
 
 		scanner.close();
