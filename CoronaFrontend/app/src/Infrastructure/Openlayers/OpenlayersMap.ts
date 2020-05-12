@@ -40,13 +40,14 @@ export class OpenlayersMap implements IMap {
 
 		this._map = new Map
 		({
+
 			target: target,
 			layers: [
 				new TileLayer({source: new OSM()}),
 				new VectorLayer({
 					source: this._vectorSource,
 					updateWhileAnimating: true,
-					updateWhileInteracting: true
+					updateWhileInteracting: true,
 				}),
 			],
 			overlays: [overlay],
@@ -92,7 +93,7 @@ export class OpenlayersMap implements IMap {
 			return new Style({
 				image: new CircleStyle({
 					radius: point.radius / resolution,
-					fill: new Fill({color: 'red'}),
+					fill: new Fill({color: point.color}),
 				}),
 			})
 		});

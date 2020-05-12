@@ -1,24 +1,13 @@
-import { CovidStat } from "./CovidStat";
+import {CovidStat} from "./CovidStat";
+import {Location} from "~src/Core/Model/Location";
+import {MapDataPoint} from "~src/Core/Model/MapDataPoint";
 
-class Council
-{
-    public constructor(private _name : string, private _infected: CovidStat | null, private _dead : CovidStat | null)
-    {
+export class Council extends MapDataPoint {
+	public constructor(private _name: string, location: Location, infected: CovidStat | null, death: CovidStat | null) {
+	    super(location, infected, death);
+	}
 
-    }
-
-    public get name() : string
-    {
-        return this._name;
-    }
-
-    public get infected() : CovidStat | null
-    {
-        return this._infected;
-    }
-
-    public get dead() : CovidStat | null
-    {
-        return this._dead;
-    }
+	public get name(): string {
+		return this._name;
+	}
 }
