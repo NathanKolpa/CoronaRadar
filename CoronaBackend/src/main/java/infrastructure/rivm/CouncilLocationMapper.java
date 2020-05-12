@@ -12,18 +12,18 @@ public class CouncilLocationMapper
 	public CouncilLocationMapper()
 	{
 		// Drenthe
-		map.put("Aa en Hunze", "drenthe");
-		map.put("Assen", "drenthe");
-		map.put("Borger-Odoorn", "drenthe");
-		map.put("Coevorden", "drenthe");
-		map.put("Emmen", "drenthe");
-		map.put("Hoogeveen", "drenthe");
-		map.put("Meppel", "drenthe");
-		map.put("Midden-Drenthe", "drenthe");
-		map.put("Noordenveld", "drenthe");
-		map.put("Tynaarlo", "drenthe");
-		map.put("Westerveld", "drenthe");
-		map.put("De Wolden", "drenthe");
+		map.put("Aa en Hunze", new Location(52.9814393,6.729452061777957));
+		map.put("Assen", new Location(52.9953538,6.560553));
+		map.put("Borger-Odoorn", new Location(52.9000925,6.8821614819282875));
+		map.put("Coevorden", new Location(52.65266925, 6.739318887009727));
+		map.put("Emmen", new Location(52.78183695, 6.90087452632109));
+		map.put("Hoogeveen", new Location(52.7202393, 6.4759313));
+		map.put("Meppel", new Location(52.711744350000004, 6.197307325163717));
+		map.put("Midden-Drenthe", new Location(52.87061935, 6.568055858657804));
+		map.put("Noordenveld", new Location( 53.0953746, 6.420844296734667));
+		map.put("Tynaarlo", new Location(53.0761326 , 6.619092936481617));
+		map.put("Westerveld", new Location(52.82845325 , 6.311162261576614));
+		map.put("De Wolden", new Location(52.70557745 , 6.338954173954216));
 
 		//flevoland
 		map.put("Almere", "flevoland");
@@ -34,24 +34,24 @@ public class CouncilLocationMapper
 		map.put("Zeewolde", "flevoland");
 
 		//Friesland
-		map.put("Achtkarspelen", "fiesland");
-		map.put("Ameland", "fiesland");
-		map.put("Dantumadiel", "fiesland");
-		map.put("De Fryske Marren", "fiesland");
-		map.put("Harlingen", "fiesland");
-		map.put("Heerenveen", "fiesland");
-		map.put("Leeuwarden", "fiesland");
-		map.put("Noardeast-FryslÃ¢n", "fiesland");
-		map.put("Ooststellingwerf", "fiesland");
-		map.put("Opsterland", "fiesland");
-		map.put("Schiermonnikoog", "fiesland");
-		map.put("Smallingerland", "fiesland");
-		map.put("SÃºdwest-FryslÃ¢n", "fiesland");
-		map.put("Terschelling", "fiesland");
-		map.put("Tytsjerksteradiel", "fiesland");
-		map.put("Vlieland", "fiesland");
-		map.put("Waadhoeke", "fiesland");
-		map.put("Weststellingwerf", "fiesland");
+		map.put("Achtkarspelen", new Location(53.207516749999996 , 6.150763705175438));
+		map.put("Ameland", new Location(53.40670555 , 5.749159048908647));
+		map.put("Dantumadiel", new Location( 53.27651665, 5.967811226529737));
+		map.put("De Fryske Marren", new Location(52.9118448 ,5.713876378916552 ));
+		map.put("Harlingen", new Location( 53.1274715, 5.279466175899499));
+		map.put("Heerenveen", new Location(52.9567361 ,5.933267875126819 ));
+		map.put("Leeuwarden", new Location(53.19968475 ,5.800690895602339 ));
+		map.put("Noardeast-FryslÃ¢n", new Location(53.3681579 ,5.938900135147189 ));
+		map.put("Ooststellingwerf", new Location(52.99085895 ,6.304963752820772 ));
+		map.put("Opsterland", new Location(53.04680105 ,6.095135723829035 ));
+		map.put("Schiermonnikoog", new Location(53.48332935 ,6.2027736660373805 ));
+		map.put("Smallingerland", new Location(53.11525265 ,6.050738915587699 ));
+		map.put("SÃºdwest-FryslÃ¢n", new Location(52.974832649999996 ,5.436073892467922));
+		map.put("Terschelling", new Location(53.3339055 ,5.351490875699594 ));
+		map.put("Tytsjerksteradiel", new Location(53.20512135 ,5.973447146507526 ));
+		map.put("Vlieland", new Location(53.202995 ,4.994912625567253 ));
+		map.put("Waadhoeke", new Location(53.2460054 ,5.610797779708593 ));
+		map.put("Weststellingwerf", new Location(52.87191835 ,6.008674359652279 ));
 
 		//flevoland
 		map.put("Almere", "flevoland");
@@ -60,26 +60,6 @@ public class CouncilLocationMapper
 		map.put("Noordoostpolder", "flevoland");
 		map.put("Urk", "flevoland");
 		map.put("Zeewolde", "flevoland");
-
-		//Friesland
-		map.put("Achtkarspelen", "fiesland");
-		map.put("Ameland", "fiesland");
-		map.put("Dantumadeel", "fiesland");
-		map.put("De friese meren", "fiesland");
-		map.put("Harlingen", "fiesland");
-		map.put("Heerenveen", "fiesland");
-		map.put("Leeuwarden", "fiesland");
-		map.put("Noardeast-Fryslând", "fiesland");
-		map.put("Ooststellingwerf", "fiesland");
-		map.put("Opsterland", "fiesland");
-		map.put("Schiermonnikook", "fiesland");
-		map.put("Smallingerland", "fiesland");
-		map.put("Súdwest-Fryslân", "fiesland");
-		map.put("Terschelling", "fiesland");
-		map.put("Tietjerksteradeel", "fiesland");
-		map.put("Vlieland", "fiesland");
-		map.put("Waadhoeke", "fiesland");
-		map.put("Weststellingwerf", "fiesland");
 
 		// Gelderland
 		map.put("Aalten", "gelderland");
@@ -299,31 +279,31 @@ public class CouncilLocationMapper
 		map.put("Nuenen, Gerwen en Nederwetten", "noord-brabant");
 
 		//overijssel
-		map.put("Almelo", "overijssel");
-		map.put("Borne", "overijssel");
-		map.put("Dalfsen", "overijssel");
-		map.put("Deventer", "overijssel");
-		map.put("Dinkelland", "overijssel");
-		map.put("Enschede", "overijssel");
-		map.put("Haaksbergen", "overijssel");
-		map.put("Hardenberg", "overijssel");
-		map.put("Hellendoorn", "overijssel");
-		map.put("Hengelo", "overijssel");
-		map.put("Hof van Twente", "overijssel");
-		map.put("Kampen", "overijssel");
-		map.put("Losser", "overijssel");
-		map.put("Oldenzaal", "overijssel");
-		map.put("Olst-Wijhe", "overijssel");
-		map.put("Ommen", "overijssel");
-		map.put("Raalte", "overijssel");
-		map.put("Rijssen-Holten", "overijssel");
-		map.put("Staphorst", "overijssel");
-		map.put("Steenwijkerland", "overijssel");
-		map.put("Tubbergen", "overijssel");
-		map.put("Twenterand", "overijssel");
-		map.put("Wierden", "overijssel");
-		map.put("Zwartewaterland", "overijssel");
-		map.put("Zwolle", "overijssel");
+		map.put("Almelo", new Location(52.3563585 ,6.6636219 ));
+		map.put("Borne", new Location( 52.3004342,6.754922548726859 ));
+		map.put("Dalfsen", new Location(52.5128208 ,6.255687381992068 ));
+		map.put("Deventer", new Location(52.24927325 ,6.176130639845588 ));
+		map.put("Dinkelland", new Location(52.371448799999996,6.915066619316923 ));
+		map.put("Enschede", new Location(52.22336325 ,6.870595664097989 ));
+		map.put("Haaksbergen", new Location(52.16212075 ,6.775353777101859 ));
+		map.put("Hardenberg", new Location(52.5691252, 6.615938378617926));
+		map.put("Hellendoorn", new Location(52.41702665,6.456061384855852 ));
+		map.put("Hengelo", new Location(52.2523195 , 6.795525590808008));
+		map.put("Hof van Twente", new Location(52.2359271 ,6.5668637425282705 ));
+		map.put("Kampen", new Location(52.5559484 ,5.9033303 ));
+		map.put("Losser", new Location(52.2620369 , 7.0046452));
+		map.put("Oldenzaal", new Location(52.30853685 , 6.914603743122237));
+		map.put("Olst-Wijhe", new Location(52.3756076 ,6.146510651573131 ));
+		map.put("Ommen", new Location(52.52006885 ,6.404763636971102 ));
+		map.put("Raalte", new Location(52.3894037 ,6.2617359511817074 ));
+		map.put("Rijssen-Holten", new Location(52.284324850000004 ,6.440777380657181 ));
+		map.put("Staphorst", new Location(52.6450286 ,6.190512830830491 ));
+		map.put("Steenwijkerland", new Location(52.7478796 ,6.0232031497011835 ));
+		map.put("Tubbergen", new Location(52.4081084 , 6.7818694));
+		map.put("Twenterand", new Location(52.439304, 6.635427575044659 ));
+		map.put("Wierden", new Location(52.35195215 ,6.567448420567358 ));
+		map.put("Zwartewaterland", new Location(52.609919899999994 ,6.045522051921318 ));
+		map.put("Zwolle", new Location(52.514565250000004 ,6.097720359677693 ));
 
 		//Zeeland
 		map.put("Borsele", "zeeland");
