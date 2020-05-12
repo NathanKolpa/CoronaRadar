@@ -29,7 +29,7 @@ export class CoronaMap {
 
 				province.councils.forEach((council, councilId) => {
 
-					this._map.addWaypoint(new Waypoint(council.name, council.getHtml(), council.location.lat, council.location.lon, council.radius, 'red'));
+					this._map.addWaypoint(new Waypoint(council.name, council.getHtml(), council.location.lat, council.location.lon, council.radius, 'blue'));
 				});
 
 				let deaths = !province.death ? '<span>Deaths: Unknown</span>' :

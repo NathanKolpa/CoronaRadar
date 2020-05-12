@@ -1,5 +1,5 @@
 import OSM from "ol/source/OSM";
-import {Tile as TileLayer, Vector as VectorLayer} from "ol/layer";
+import {Layer, Tile as TileLayer, Vector as VectorLayer} from "ol/layer";
 import Point from "ol/geom/Point";
 import Feature from 'ol/Feature';
 import Map from 'ol/Map';
@@ -12,8 +12,6 @@ import {Stroke, Style} from "ol/style";
 import CircleStyle from "ol/style/Circle";
 import Fill from "ol/style/Fill";
 import Overlay from 'ol/Overlay';
-import {toStringHDMS} from 'ol/coordinate';
-import {toLonLat} from 'ol/proj';
 
 
 export class OpenlayersMap implements IMap {
@@ -37,7 +35,6 @@ export class OpenlayersMap implements IMap {
 			}
 		});
 
-
 		this._map = new Map
 		({
 
@@ -45,9 +42,7 @@ export class OpenlayersMap implements IMap {
 			layers: [
 				new TileLayer({source: new OSM()}),
 				new VectorLayer({
-					source: this._vectorSource,
-					updateWhileAnimating: true,
-					updateWhileInteracting: true,
+					source: this._vectorSource
 				}),
 			],
 			overlays: [overlay],
