@@ -15,7 +15,7 @@
 
 		#container {
 			background-color: white;
-			color: gray;
+			color: black;
 		}
 
 		#titleFilter {
@@ -86,7 +86,7 @@
 <body>
 <div class="container-fluid" id="container">
 	<div class="row">
-		<div class="col-md-1" id="titleFilter">
+		<div class="col-md-2" id="titleFilter">
 			<h4>Filter</h4>
 			<h5>Cases</h5>
 			<input type="checkbox" id="confirmdCases" checked="true">
@@ -94,7 +94,7 @@
 			<input type="checkbox" id="confirmdDeath" checked="true">
 			<label for="confirmdDeath">Confirmd Death</label><br>
 		</div>
-		<div class="col-md-11">
+		<div class="col-md-10">
 			<div id="map" class="map"></div>
 			<div id="popup" class="ol-popup">
 				<a href="#" id="popup-closer" class="ol-popup-closer"></a>
@@ -106,7 +106,7 @@
 			<canvas id="graph" width="400" height="190"></canvas>    
 	<div class="row row-cols-1" id="footer">
 		<div class="col">
-			<marquee scrollamount="75"><p style="color: red">Copyright &copy; 2020 - Alle rechten voorbehouden.</p></marquee>
+			<marquee scrollamount="25"><p>Copyright &copy; 2020 - Alle rechten voorbehouden.</p></marquee>
 		</div>
 	</div>
 </div>
