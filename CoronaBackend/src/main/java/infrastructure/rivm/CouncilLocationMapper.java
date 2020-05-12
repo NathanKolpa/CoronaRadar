@@ -26,12 +26,12 @@ public class CouncilLocationMapper
 		map.put("De Wolden", new Location(52.70557745 , 6.338954173954216));
 
 		//flevoland
-		map.put("Almere", "flevoland");
-		map.put("Dronten", "flevoland");
-		map.put("Lelystad", "flevoland");
-		map.put("Noordoostpolder", "flevoland");
-		map.put("Urk", "flevoland");
-		map.put("Zeewolde", "flevoland");
+		map.put("Almere", new Location(52.375092, 5.216168));
+		map.put("Dronten", new Location(52.5236091,5.7157938));
+		map.put("Lelystad", new Location(52.5150949,5.4768915));
+		map.put("Noordoostpolder", new Location(52.7264415,5.703605604549722));
+		map.put("Urk", new Location(52.66542,5.5990536));
+		map.put("Zeewolde", new Location(52.331111,5.5430312));
 
 		//Friesland
 		map.put("Achtkarspelen", new Location(53.207516749999996 , 6.150763705175438));
@@ -52,14 +52,6 @@ public class CouncilLocationMapper
 		map.put("Vlieland", new Location(53.202995 ,4.994912625567253 ));
 		map.put("Waadhoeke", new Location(53.2460054 ,5.610797779708593 ));
 		map.put("Weststellingwerf", new Location(52.87191835 ,6.008674359652279 ));
-
-		//flevoland
-		map.put("Almere", "flevoland");
-		map.put("Dronten", "flevoland");
-		map.put("Lelystad", "flevoland");
-		map.put("Noordoostpolder", "flevoland");
-		map.put("Urk", "flevoland");
-		map.put("Zeewolde", "flevoland");
 
 		// Gelderland
 		map.put("Aalten", "gelderland");
@@ -167,18 +159,18 @@ public class CouncilLocationMapper
 		map.put("Zwijndrecht","zuidholland");
 
 		//Groningen
-		map.put("Appingedam", "groningen");
-		map.put("Delfzijl", "groningen");
-		map.put("Groningen", "groningen");
-		map.put("Het Hogeland", "groningen");
-		map.put("Loppersum", "groningen");
-		map.put("Midden-Groningen", "groningen");
-		map.put("Oldambt", "groningen");
-		map.put("Pekela", "groningen");
-		map.put("Stadskanaal", "groningen");
-		map.put("Veendam", "groningen");
-		map.put("Westerkwartier", "groningen");
-		map.put("Westerwolde", "groningen");
+		map.put("Appingedam", new Location(53.3203563, 6.8577654));
+		map.put("Delfzijl", new Location(53.3325644, 6.9135144));
+		map.put("Groningen", new Location(53.2190652, 6.5680077));
+		map.put("Het Hogeland", new Location(53.41292275, 6.505729937635983));
+		map.put("Loppersum", new Location(53.3320144, 6.7469502));
+		map.put("Midden-Groningen", new Location(53.184673599999996, 6.7795735147296075));
+		map.put("Oldambt", new Location(53.2223408, 7.068982392062174));
+		map.put("Pekela", new Location(53.067078300000006, 6.965987960024869));
+		map.put("Stadskanaal", new Location(52.9925618, 6.9624466));
+		map.put("Veendam", new Location(53.1028443, 6.8694863));
+		map.put("Westerkwartier", new Location(53.21425645, 6.3459813379440115));
+		map.put("Westerwolde", new Location(52.999464450000005, 7.1404588700937754));
 
 		//Limburg
 		map.put("Beek", "limburg");
@@ -324,54 +316,54 @@ public class CouncilLocationMapper
 		map.put("Zutphen", "gelderland");
 
 		// Noord-Holland
-		map.put("Aalsmeer", "noordholland");
-		map.put("Alkmaar", "noordholland");
-		map.put("Amstelveen", "noordholland");
-		map.put("Amsterdam", "noordholland");
-		map.put("Beemster", "noordholland");
-		map.put("Bergen (NH.)", "noordholland");
-		map.put("Beverwijk", "noordholland");
-		map.put("Blaricum", "noordholland");
-		map.put("Bloemendaal", "noordholland");
-		map.put("Castricum", "noordholland");
-		map.put("Den Helder", "noordholland");
-		map.put("Diemen", "noordholland");
-		map.put("Drechterland", "noordholland");
-		map.put("Edam-Volendam", "noordholland");
-		map.put("Enkhuizen", "noordholland");
-		map.put("Gooise Meren", "noordholland");
-		map.put("Haarlem", "noordholland");
-		map.put("Haarlemmermeer", "noordholland");
-		map.put("Heemskerk", "noordholland");
-		map.put("Heemstede", "noordholland");
-		map.put("Heerhugowaard", "noordholland");
-		map.put("Heiloo", "noordholland");
-		map.put("Hilversum", "noordholland");
-		map.put("Hollands Kroon", "noordholland");
-		map.put("Hoorn", "noordholland");
-		map.put("Huizen", "noordholland");
-		map.put("Koggenland", "noordholland");
-		map.put("Landsmeer", "noordholland");
-		map.put("Langedijk", "noordholland");
-		map.put("Laren", "noordholland");
-		map.put("Medemblik", "noordholland");
-		map.put("Oostzaan", "noordholland");
-		map.put("Opmeer", "noordholland");
-		map.put("Ouder-Amstel", "noordholland");
-		map.put("Purmerend", "noordholland");
-		map.put("Schagen", "noordholland");
-		map.put("Stede Broec", "noordholland");
-		map.put("Texel", "noordholland");
-		map.put("Uitgeest", "noordholland");
-		map.put("Uithoorn", "noordholland");
-		map.put("Velsen", "noordholland");
-		map.put("Waterland", "noordholland");
-		map.put("Weesp", "noordholland");
-		map.put("Wijdemeren", "noordholland");
-		map.put("Wormerland", "noordholland");
-		map.put("Zaanstad", "noordholland");
-		map.put("Zandvoort", "noordholland");
-		
+		map.put("Aalsmeer", new Location(52.265986, 4.7611137));
+		map.put("Alkmaar", new Location(52.6312592, 4.7503798));
+		map.put("Amstelveen", new Location(52.3025582, 4.8467875));
+		map.put("Amsterdam", new Location(52.3727598, 4.8936041));
+		map.put("Beemster", new Location(52.56245505, 4.919867904155717));
+		map.put("Bergen (NH.)", new Location(52.6702278, 4.7011616));
+		map.put("Beverwijk", new Location(52.4876371, 4.6603502));
+		map.put("Blaricum", new Location(52.2725049, 5.2441379));
+		map.put("Bloemendaal", new Location(52.4036594, 4.6197687));
+		map.put("Castricum", new Location(52.5496739, 4.6696185));
+		map.put("Den Helder", new Location(52.9580304, 4.7602702));
+		map.put("Diemen", new Location(52.3421489, 4.960825));
+		map.put("Drechterland", new Location(52.65570515, 5.185359460663441));
+		map.put("Edam-Volendam", new Location(52.54861165, 5.026615664206329));
+		map.put("Enkhuizen", new Location(52.7036282, 5.2901222));
+		map.put("Gooise Meren", new Location(52.322224000000006, 5.104556785563771));
+		map.put("Haarlem", new Location(52.3885317, 4.6388048));
+		map.put("Haarlemmermeer", new Location(52.3238421, 4.715261248876009));
+		map.put("Heemskerk", new Location(52.5104331, 4.6723536));
+		map.put("Heemstede", new Location(52.3529362, 4.6215374));
+		map.put("Heerhugowaard", new Location(52.6631484, 4.8326672));
+		map.put("Heiloo", new Location(52.6016491, 4.7119266));
+		map.put("Hilversum", new Location(52.2248095, 5.1763518));
+		map.put("Hollands Kroon", new Location(52.875946799999994, 4.965504712047365));
+		map.put("Hoorn", new Location(52.653272, 5.0735802));
+		map.put("Huizen", new Location(52.2962576, 5.2577514));
+		map.put("Koggenland", new Location(52.6475784, 4.9523264686313055));
+		map.put("Landsmeer", new Location(52.4309713, 4.9160859));
+		map.put("Langedijk", new Location(52.6899114, 4.778732158075601));
+		map.put("Laren", new Location(52.2565894, 5.2251925));
+		map.put("Medemblik", new Location(52.768691, 5.106195));
+		map.put("Oostzaan", new Location(52.45218065, 4.868548732505015));
+		map.put("Opmeer", new Location(52.704381749999996, 4.928568037131412));
+		map.put("Ouder-Amstel", new Location(52.2946678, 4.91646890749465));
+		map.put("Purmerend", new Location(52.4997208, 4.964420036889974));
+		map.put("Schagen", new Location(52.784346, 4.789149145166119));
+		map.put("Stede Broec", new Location(52.697291899999996, 5.225990311919762));
+		map.put("Texel", new Location(53.084175, 4.81866952891915));
+		map.put("Uitgeest", new Location(52.523293949999996, 4.737466990272131));
+		map.put("Uithoorn", new Location(52.2411412, 4.8251096));
+		map.put("Velsen", new Location(52.451910299999994, 4.603891145874141));
+		map.put("Waterland", new Location(52.44350745, 5.058109822038444));
+		map.put("Weesp", new Location(52.3102843, 5.0363742));
+		map.put("Wijdemeren", new Location(52.2256115, 5.090367791157206));
+		map.put("Wormerland", new Location(52.505552249999994, 4.85934288905351));
+		map.put("Zaanstad", new Location(52.4689235, 4.773783522451712));
+		map.put("Zandvoort", new Location(52.3595916, 4.53252402994204));
+
 		// Utrecht
 		map.put("Amersfoort", "utrecht");
 		map.put("Baarn", "utrecht");
