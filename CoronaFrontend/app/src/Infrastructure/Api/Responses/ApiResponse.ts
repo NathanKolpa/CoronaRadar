@@ -12,6 +12,15 @@ export interface IProvince {
 	deaths: IStat | null;
 	location: ILocation;
 	name: string;
+
+	councils: { [key: string]: ICouncil };
+}
+
+export interface ICouncil {
+	infections: IStat | null;
+	deaths: IStat | null;
+	location: ILocation;
+	name: string;
 }
 
 export interface IStat {
