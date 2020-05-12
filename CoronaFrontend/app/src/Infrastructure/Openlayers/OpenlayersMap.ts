@@ -58,10 +58,6 @@ export class OpenlayersMap implements IMap {
 		let content = document.getElementById('popup-content');
 		let closer = document.getElementById('popup-closer');
 
-		/**
-		 * Add a click handler to hide the popup.
-		 * @return {boolean} Don't follow the href.
-		 */
 		closer.onclick = function () {
 			overlay.setPosition(undefined);
 			closer.blur();
